@@ -1,14 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Liveinapp</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+		<title>Liveinapp</title>
+		<%= stylesheet_link_tag    "application" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+		<style type="text/css">
+		  body {
+  padding-top: 60px;
+}
+		</style>
+	</head>
+	<body>
+		<div class="topbar">
+			<div class="topbar-inner">
+				<div class="container-fluid">
+					<a class="brand" href="#">Live in APP</a>
+					<ul class="nav">
+						<li class="active">
+							<a href="/">首页</a>
+						</li>
+						<li>
+							<a href="#">项目管理</a>
+						</li>
+						<li>
+							<a href="#">主机服务</a>
+						</li>
+						<li>
+              <a href="#">域名服务</a>
+            </li>
+					</ul>
+					<form class="pull-left" action="">
+            <input type="text" placeholder="搜索">
+          </form>
+					<p class="pull-right">
+					  <% if user_signed_in? %>
+              <%= link_to('退出', destroy_user_session_path, :method => :delete) %>        
+            <% else %>
+              <%= link_to('注册', new_user_registration_path)  %>
+              <%= link_to('登录', new_user_session_path)  %>  
+            <% end %>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+		  <div class="sidebar">
+        <div class="well">
+          <h5>主机服务</h5>
+          <ul>
+            <li><a href="#">VPS</a></li>
+            <li><a href="#">虚拟主机</a></li>
+            <li><a href="#">云平台</a></li>
+          </ul>
+          <h5>Sidebar</h5>
+          <ul>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </div>
+      </div>
+		  <div class="content">
+		    <%= yield %>
+		  </div>
+		  <footer>
+        <p>&copy; Company 2011</p>
+      </footer>
+		</div>
+	</body>
 </html>
