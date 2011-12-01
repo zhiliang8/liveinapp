@@ -22,7 +22,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
-gem 'simple_form'
+gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 gem 'kaminari'
 
 # To use ActiveModel has_secure_password

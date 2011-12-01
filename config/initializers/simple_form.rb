@@ -1,93 +1,141 @@
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
-  # Components used by the form builder to generate a complete input. You can remove
-  # any of them, change the order, or even add your own components to the stack.
-  # config.components = [ :placeholder, :label_input, :hint, :error ]
+# Components used by the form builder to generate a complete input. You can remove
+# any of them, change the order, or even add your own components to the stack.
 
-  # Default tag used on hints.
-  # config.hint_tag = :span
+  config.wrappers :inline, :class => 'clearfix', :error_class => :error do |b|
+    b.use :placeholder
+    b.use :label
+    b.use :tag => 'div', :class => 'input' do |ba|
+      ba.use :input
+      ba.use :error, :tag => :span, :class => :'help-inline'
+      ba.use :hint,  :tag => :span, :class => :'help-block'
+    end
+  end
 
-  # CSS class to add to all hint tags.
-  # config.hint_class = :hint
+  config.wrappers :stacked, :class => "clearfix", :error_class => :error do |b|
+    b.use :placeholder
+    b.use :label
+    b.use :hint,  :tag => :span, :class => :'help-block'
+    b.use :tag => 'div', :class => 'input' do |input|
+      input.use :input
+      input.use :error, :tag => :span, :class => :'help-inline'
+    end
+  end
 
-  # CSS class used on errors.
-  # config.error_class = :error
+  config.wrappers :prepend, :class => "clearfix", :error_class => :error do |b|
+    b.use :placeholder
+    b.use :label
+    b.use :hint,  :tag => :span, :class => :'help-block'
+    b.use :tag => 'div', :class => 'input' do |input|
+      input.use :tag => 'div', :class => 'input-prepend' do |prepend|
+        prepend.use :input
+      end
+      input.use :error, :tag => :span, :class => :'help-inline'
+    end
+  end
 
-  # Default tag used on errors.
-  # config.error_tag = :span
+  config.wrappers :append, :class => "clearfix", :error_class => :error do |b|
+    b.use :placeholder
+    b.use :label
+    b.use :hint,  :tag => :span, :class => :'help-block'
+    b.use :tag => 'div', :class => 'input' do |input|
+      input.use :tag => 'div', :class => 'input-append' do |append|
+        append.use :input
+      end
+      input.use :error, :tag => :span, :class => :'help-inline'
+    end
+  end
+  config.label_text = lambda { |label, required| "#{label} #{required}" }
+  config.browser_validations = false
+  config.button_class = 'btn'
+# config.components = [ :placeholder, :label_input, :hint, :error ]
 
-  # Method used to tidy up errors.
-  # config.error_method = :first
+# Default tag used on hints.
+# config.hint_tag = :span
 
-  # Default tag used for error notification helper.
-  # config.error_notification_tag = :p
+# CSS class to add to all hint tags.
+# config.hint_class = :hint
 
-  # CSS class to add for error notification helper.
-  # config.error_notification_class = :error_notification
+# CSS class used on errors.
+# config.error_class = :error
 
-  # ID to add for error notification helper.
-  # config.error_notification_id = nil
+# Default tag used on errors.
+# config.error_tag = :span
 
-  # You can wrap all inputs in a pre-defined tag.
-  # config.wrapper_tag = :div
+# Method used to tidy up errors.
+# config.error_method = :first
 
-  # CSS class to add to all wrapper tags.
-  # config.wrapper_class = :input
+# Default tag used for error notification helper.
+# config.error_notification_tag = :p
 
-  # CSS class to add to the wrapper if the field has errors.
-  # config.wrapper_error_class = :field_with_errors
+# CSS class to add for error notification helper.
+# config.error_notification_class = :error_notification
 
-  # You can wrap a collection of radio/check boxes in a pre-defined tag, defaulting to none.
-  # config.collection_wrapper_tag = nil
+# ID to add for error notification helper.
+# config.error_notification_id = nil
 
-  # You can wrap each item in a collection of radio/check boxes with a tag, defaulting to span.
-  # config.item_wrapper_tag = :span
+# You can wrap all inputs in a pre-defined tag.
+# config.wrapper_tag = :div
 
-  # Series of attempts to detect a default label method for collection.
-  # config.collection_label_methods = [ :to_label, :name, :title, :to_s ]
+# CSS class to add to all wrapper tags.
+# config.wrapper_class = :input
 
-  # Series of attempts to detect a default value method for collection.
-  # config.collection_value_methods = [ :id, :to_s ]
+# CSS class to add to the wrapper if the field has errors.
+# config.wrapper_error_class = :field_with_errors
 
-  # How the label text should be generated altogether with the required text.
-  # config.label_text = lambda { |label, required| "#{required} #{label}" }
+# You can wrap a collection of radio/check boxes in a pre-defined tag, defaulting to none.
+# config.collection_wrapper_tag = nil
 
-  # You can define the class to use on all labels. Default is nil.
-  # config.label_class = nil
+# You can wrap each item in a collection of radio/check boxes with a tag, defaulting to span.
+# config.item_wrapper_tag = :span
 
-  # You can define the class to use on all forms. Default is simple_form.
-  # config.form_class = :simple_form
+# Series of attempts to detect a default label method for collection.
+# config.collection_label_methods = [ :to_label, :name, :title, :to_s ]
 
-  # Whether attributes are required by default (or not). Default is true.
-  # config.required_by_default = true
+# Series of attempts to detect a default value method for collection.
+# config.collection_value_methods = [ :id, :to_s ]
 
-  # Tell browsers whether to use default HTML5 validations (novalidate option).
-  # Default is enabled.
-  # config.browser_validations = true
+# How the label text should be generated altogether with the required text.
+# config.label_text = lambda { |label, required| "#{required} #{label}" }
 
-  # Determines whether HTML5 types (:email, :url, :search, :tel) and attributes
-  # (e.g. required) are used or not. True by default.
-  # Having this on in non-HTML5 compliant sites can cause odd behavior in
-  # HTML5-aware browsers such as Chrome.
-  # config.html5 = true
+# You can define the class to use on all labels. Default is nil.
+# config.label_class = nil
 
-  # Custom mappings for input types. This should be a hash containing a regexp
-  # to match as key, and the input type that will be used when the field name
-  # matches the regexp as value.
-  # config.input_mappings = { /count/ => :integer }
+# You can define the class to use on all forms. Default is simple_form.
+# config.form_class = :simple_form
 
-  # Collection of methods to detect if a file type was given.
-  # config.file_methods = [ :mounted_as, :file?, :public_filename ]
+# Whether attributes are required by default (or not). Default is true.
+# config.required_by_default = true
 
-  # Default priority for time_zone inputs.
-  # config.time_zone_priority = nil
+# Tell browsers whether to use default HTML5 validations (novalidate option).
+# Default is enabled.
+# config.browser_validations = true
 
-  # Default priority for country inputs.
-  # config.country_priority = nil
+# Determines whether HTML5 types (:email, :url, :search, :tel) and attributes
+# (e.g. required) are used or not. True by default.
+# Having this on in non-HTML5 compliant sites can cause odd behavior in
+# HTML5-aware browsers such as Chrome.
+# config.html5 = true
 
-  # Default size for text inputs.
-  # config.default_input_size = 50
+# Custom mappings for input types. This should be a hash containing a regexp
+# to match as key, and the input type that will be used when the field name
+# matches the regexp as value.
+# config.input_mappings = { /count/ => :integer }
 
-  # When false, do not use translations for labels, hints or placeholders.
-  # config.translate = true
+# Collection of methods to detect if a file type was given.
+# config.file_methods = [ :mounted_as, :file?, :public_filename ]
+
+# Default priority for time_zone inputs.
+# config.time_zone_priority = nil
+
+# Default priority for country inputs.
+# config.country_priority = nil
+
+# Default size for text inputs.
+# config.default_input_size = 50
+
+# When false, do not use translations for labels, hints or placeholders.
+config.translate = true
+
 end
