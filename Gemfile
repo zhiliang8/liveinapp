@@ -44,7 +44,7 @@ group :development, :test do
   gem 'database_cleaner', '~> 0.6.7'
 end
 group :development do
-  
+  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'
 end
 
 group :test do

@@ -1,6 +1,6 @@
-<h2>Forgot your password?</h2>
-
-<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+<fieldset>
+  <legend>忘记密码？</legend>
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }, :wrapper => :inline) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
@@ -8,8 +8,8 @@
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+    <%= f.button :submit, "找回密码" %>
   </div>
 <% end %>
-
+</fieldset>
 <%= render :partial => "devise/shared/links" %>

@@ -16,7 +16,6 @@ zh-CN:
       user:
         new:
           email: 'Email'
-          "Sign up": '注册'
         edit:
           email: 'Email'
     hints:
