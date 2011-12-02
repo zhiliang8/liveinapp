@@ -5,5 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  validates :name, :presence => true, :length => {:in => 3..20}, :uniqueness => {:case_sensitive => false}
+  def admin?
+    return true if Settings.admin_emails.include?(self.email)
+    return false;
+  end
 end

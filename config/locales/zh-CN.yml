@@ -4,7 +4,7 @@
       user: "用户"
     attributes:
       user:
-        name: "名字"
+        name: "用户名"
         login: "用户名"
         email: "Email"
         location: "城市"

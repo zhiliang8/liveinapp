@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'devise', '~>1.5.2'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'settingslogic'
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'

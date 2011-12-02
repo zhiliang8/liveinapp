@@ -1,6 +1,8 @@
 Liveinapp::Application.routes.draw do
-  devise_for :users
+  resources :nodes
 
+  devise_for :users, :path => 'account'
+  resources :users
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

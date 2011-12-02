@@ -9,5 +9,6 @@
 //= require bootstrap
 //= require_tree .
 $(function() {
-  $(".alert-message").alert()
+  $(".alert-message").alert();
+  $("#userbar").dropdown();
 })

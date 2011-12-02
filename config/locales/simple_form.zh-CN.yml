@@ -1,7 +1,7 @@
 zh-CN:
   simple_form:
-    "yes": '是'
-    "no": '否'
+    yes: '是'
+    no: '否'
     required:
       text: '必填'
       mark: '*'
@@ -9,7 +9,7 @@ zh-CN:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "发现一些错误，请检查:"
+      default_message: '发现一些错误，请检查:'
     # Labels and hints examples
     labels:
       password: '密码'
