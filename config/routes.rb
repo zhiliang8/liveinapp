@@ -1,4 +1,6 @@
 Liveinapp::Application.routes.draw do
+  resources :apps
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :nodes
