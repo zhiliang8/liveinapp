@@ -1,10 +1,15 @@
 <div class="span4">
   <div class="well">
-    <h5>主机服务</h5>
+    <% init_nodes_data %>
+    <% @roots.each do |parent|%>
+    <h5><%= parent.name %></h5>
     <ul>
-      <li><a href="#">VPS</a></li>
-      <li><a href="#">虚拟主机</a></li>
-      <li><a href="#">云平台</a></li>
+      <% @childless.each do |child|%>
+        <% if parent.id==child.parent_id %>
+        <li><%= link_to child.name, node_path(child)%></li>
+        <% end %>
+      <% end %>
     </ul>
+    <% end %>
   </div>
 </div>

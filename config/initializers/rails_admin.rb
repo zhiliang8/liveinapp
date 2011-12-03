@@ -20,11 +20,11 @@ RailsAdmin.config do |config|
   # and will run on the default user scope.
   # If you use devise, this will authenticate the same as authenticate_user!
   # Example Devise admin
-  # RailsAdmin.config do |config|
-  #   config.authenticate_with do
-  #     authenticate_admin!
-  #   end
-  # end
+  RailsAdmin.config do |config|
+    config.authenticate_with do
+      redirect_to '/' unless current_user.try(:admin?)
+    end
+  end
   # Example Custom Warden
   # RailsAdmin.config do |config|
   #   config.authenticate_with do
@@ -146,25 +146,30 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
-  # config.model User do
-  #   # Found associations:
-  #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :name, :string 
-  #     configure :email, :string 
-  #     configure :password, :password 
-  #     configure :password_confirmation, :password 
-  #     configure :reset_password_token, :string         # Hidden 
-  #     configure :remember_token, :string         # Hidden 
-  #     configure :remember_created_at, :datetime 
-  #     configure :authentication_token, :string 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
+  config.model User do
+    # Found associations:
+    # Found columns:
+      # configure :id, :integer 
+      # configure :name, :string 
+      # configure :email, :string 
+      # configure :password, :password 
+      # configure :password_confirmation, :password 
+      # configure :reset_password_token, :string         # Hidden 
+      # configure :remember_token, :string         # Hidden 
+      # configure :remember_created_at, :datetime 
+      # configure :authentication_token, :string 
+      # configure :created_at, :datetime 
+      # configure :updated_at, :datetime   #   # Sections:
+    include_fields :name, :email, :password, :password_confirmation
+    list do
+      include_fields :name, :email, :created_at, :updated_at
+    end
+    export do; end
+    show do
+      include_fields :name, :email, :created_at, :updated_at
+    end
+    edit do;end
+    create do; end
+    update do; end
+  end
 end

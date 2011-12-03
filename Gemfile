@@ -22,9 +22,12 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'settingslogic'
 
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
+# gem 'bootstrap-rails'#, :require => "bootstrap-rails", :git => 'git://github.com/jordzhang/bootstrap-rails.git'
+gem 'bootstrap-sass', '1.4.1'
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 gem 'kaminari'
+
+gem 'acts_as_tree_rails3'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
