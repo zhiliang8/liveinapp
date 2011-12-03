@@ -1,4 +1,6 @@
 Liveinapp::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   resources :nodes
 
   devise_for :users, :path => 'account'

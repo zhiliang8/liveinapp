@@ -9,7 +9,7 @@
 	<body>
 		<div class="topbar">
 			<div class="topbar-inner">
-				<div class="container-fluid">
+				<div class="container">
 					<a class="brand" href="/"><%= Settings.app_name %></a>
 					<ul class="nav">
 						<li class="active">
@@ -49,31 +49,15 @@
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid">
-		  <div class="sidebar">
-        <div class="well">
-          <h5>主机服务</h5>
-          <ul>
-            <li><a href="#">VPS</a></li>
-            <li><a href="#">虚拟主机</a></li>
-            <li><a href="#">云平台</a></li>
-          </ul>
-          <h5>Sidebar</h5>
-          <ul>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
-        </div>
-      </div>
-		  <div class="content">
-		    <%= notice_message %>
-		    <%= yield %>
-		  </div>
-		  <footer>
+		<div class="container">
+		  <div class="row">
+  		  <%= render "common/nodes"%>
+  		  <div class="span12">
+  		    <%= notice_message %>
+  		    <%= yield %>
+  		  </div>
+  		</div>
+  		<footer>
         <p><%= raw Settings.foot_html %></p>
       </footer>
 		</div>
