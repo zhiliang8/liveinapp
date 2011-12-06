@@ -50,12 +50,9 @@
 			</div>
 		</div>
 		<div class="container">
+		  <%= notice_message %>
 		  <div class="row">
-  		  <%= render "common/nodes"%>
-  		  <div class="span12">
-  		    <%= notice_message %>
-  		    <%= yield %>
-  		  </div>
+  		  <%= content_for?(:content) ? yield(:content) : yield %>
   		</div>
   		<footer>
         <p><%= raw Settings.foot_html %></p>

@@ -1,4 +1,5 @@
 class NodesController < ApplicationController
+  layout 'three_column', :only => :show
   # GET /nodes
   # GET /nodes.json
   def index
@@ -14,11 +15,8 @@ class NodesController < ApplicationController
   # GET /nodes/1.json
   def show
     @node = Node.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @node }
-    end
+    @apps = @node.apps.page params[:page]
+    
   end
 
   # GET /nodes/new

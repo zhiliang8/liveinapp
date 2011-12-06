@@ -2,7 +2,7 @@
   <div class="well">
     <% init_nodes_data %>
     <% @roots.each do |parent|%>
-    <h5><%= parent.name %></h5>
+    <h5><%= link_to parent.name, node_path(parent) %></h5>
     <ul>
       <% @childless.each do |child|%>
         <% if parent.id==child.parent_id %>

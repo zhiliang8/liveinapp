@@ -1,0 +1,11 @@
+<% content_for :content do %>
+  <%= render "common/nodes"%>
+  <div class="span8">
+    <%= yield %>
+  </div>
+  <div class="span4">
+    <%= yield :sidebar%>
+  </div>
+<% end %>
+<%= render :template => "layouts/application"%>
+

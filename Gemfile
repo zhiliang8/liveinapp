@@ -40,6 +40,7 @@ gem 'therubyracer'
 
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
+gem 'websnap'
 # Deploy with Capistrano
 # gem 'capistrano'
 

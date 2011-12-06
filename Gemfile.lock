@@ -195,6 +195,7 @@ GEM
       raindrops (~> 0.6)
     warden (1.1.0)
       rack (>= 1.0)
+    websnap (0.1.4)
 
 PLATFORMS
   ruby
@@ -221,3 +222,4 @@ DEPENDENCIES
   therubyracer
   uglifier (>= 1.0.3)
   unicorn
+  websnap
