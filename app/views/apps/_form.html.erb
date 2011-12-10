@@ -1,13 +1,22 @@
-<%= simple_form_for(@app) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="inputs">
-    <%= f.input :name %>
-    <%= f.input :url %>
-    <%= f.input :desc %>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit %>
-  </div>
+<%= simple_form_for(@app, :wrapper => "inline") do |f| %>
+  <fieldset>
+  <legend><%= @app.new_record? ? t("apps.create_app") : t("apps.edit_app") %></legend>
+    <div class="inputs">
+      <%= f.input :name do %>
+        <span class="span3"<%= " style=display:none;" if !@node.blank? %>>
+        <%= f.select :node_id, Node.hot_node_collection %>
+        </span>
+        <span class="span6">
+          <%= f.text_field :name %>
+        </span>
+      <% end %>
+      <%= f.input :url, :placeholder => "http://", :class => "xlarge"%>
+      <%= f.input :desc, :as => :text, :class => "xxlarge" %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit t("common.save"), :class => "primary", :disable_with => t("common.saving")%>
+      <%= link_to t("common.cancel"), @app.id.blank? ? root_path : app_path(@app), :class => "btn"%>
+    </div>
+  </fieldset>
 <% end %>

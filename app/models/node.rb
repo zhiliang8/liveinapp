@@ -3,4 +3,10 @@ class Node < ActiveRecord::Base
   # belongs_to :parent, :class_name => 'Node', :foreign_key => 'parent_id'
   acts_as_tree :order => "sort"
   has_many :apps
+  
+  scope :hots, order("apps_count desc")
+  
+  def self.hot_node_collection
+    Node.hots.collect { |n| [n.name,n.id] }
+  end
 end

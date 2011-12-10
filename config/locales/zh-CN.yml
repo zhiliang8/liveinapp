@@ -36,6 +36,10 @@
         body: 内容
         locked: 锁定开关
         change_desc: 变更描述
+      app:
+        name: 名称
+        url: 应用URL
+        desc: 描述
     errors:
       models:
         user: 用户        

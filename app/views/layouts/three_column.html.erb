@@ -4,7 +4,9 @@
     <%= yield %>
   </div>
   <div class="span4">
+    <div class="well">
     <%= yield :sidebar%>
+    </div>
   </div>
 <% end %>
 <%= render :template => "layouts/application"%>

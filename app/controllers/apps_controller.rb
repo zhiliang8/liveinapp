@@ -25,7 +25,11 @@ class AppsController < ApplicationController
   # GET /apps/new.json
   def new
     @app = App.new
-
+    if params[:node].nil?
+      @nodes = Node.all
+    else
+      @node = Node.find(params[:node])
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @app }

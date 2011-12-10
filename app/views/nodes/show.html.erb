@@ -6,5 +6,5 @@
 <%= paginate @apps %>
 </div>
 <% content_for :sidebar do%>
-  相关内容
+  <%= render :partial => "common/add_node_link" %>
 <% end %>
