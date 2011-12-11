@@ -3,15 +3,15 @@
   <legend><%= @app.new_record? ? t("apps.create_app") : t("apps.edit_app") %></legend>
     <div class="inputs">
       <%= f.input :name do %>
-        <span class="span3"<%= " style=display:none;" if !@node.blank? %>>
-        <%= f.select :node_id, Node.hot_node_collection %>
+        <span class="span3">
+        <%= f.grouped_collection_select :node_id, Node.all, :children, :name, :id, :name  %>
         </span>
-        <span class="span6">
-          <%= f.text_field :name %>
+        <span class="span8">
+          <%= f.text_field :name, :class => "xlarge" %>
         </span>
       <% end %>
-      <%= f.input :url, :placeholder => "http://", :class => "xlarge"%>
-      <%= f.input :desc, :as => :text, :class => "xxlarge" %>
+      <%= f.input :url, :placeholder => "http://", :input_html => { :class => 'xxlarge' }%>
+      <%= f.input :desc, :as => :text, :input_html => { :class => 'xxlarge' } %>
     </div>
   
     <div class="actions">

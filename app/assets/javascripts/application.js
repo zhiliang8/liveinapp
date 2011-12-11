@@ -11,4 +11,5 @@
 $(function() {
   $(".alert-message").alert();
   $("#userbar").dropdown();
+  $("select").chosen();
 })

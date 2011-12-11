@@ -29,6 +29,7 @@ class AppsController < ApplicationController
       @nodes = Node.all
     else
       @node = Node.find(params[:node])
+      @app.node = @node
     end
     respond_to do |format|
       format.html # new.html.erb
