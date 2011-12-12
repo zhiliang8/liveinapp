@@ -15,7 +15,7 @@
     </div>
   
     <div class="actions">
-      <%= f.submit t("common.save"), :class => "primary", :disable_with => t("common.saving")%>
+      <%= f.button :submit, t("common.save"), :class => "primary", :disable_with => t("common.saving")%>
       <%= link_to t("common.cancel"), @app.id.blank? ? root_path : app_path(@app), :class => "btn"%>
     </div>
   </fieldset>

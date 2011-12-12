@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AppsController < ApplicationController
   # GET /apps
   # GET /apps.json
@@ -46,7 +47,10 @@ class AppsController < ApplicationController
   # POST /apps.json
   def create
     @app = App.new(params[:app])
-
+    # snap = WebSnap::Snapper.new(@app.url)
+    # file = snap.to_file("~/code/liveinapp/jpg")
+    # @app.snapshot = File.open("/home/zhiliang/code/liveinapp/jpg")
+    
     respond_to do |format|
       if @app.save
         format.html { redirect_to @app, notice: 'App was successfully created.' }

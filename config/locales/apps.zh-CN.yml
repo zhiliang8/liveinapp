@@ -1,4 +1,4 @@
 "zh-CN":
   apps:
-    create_app: 新建应用
-    edit_app: 编辑应用
+    create_app: 添加云应用
+    edit_app: 编辑云应用
