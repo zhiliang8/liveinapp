@@ -1,5 +1,6 @@
 # encoding: utf-8
 class AppsController < ApplicationController
+  layout 'two_column', :only => [:new, :edit]
   # GET /apps
   # GET /apps.json
   def index
@@ -47,10 +48,8 @@ class AppsController < ApplicationController
   # POST /apps.json
   def create
     @app = App.new(params[:app])
-    # snap = WebSnap::Snapper.new(@app.url)
-    # file = snap.to_file("~/code/liveinapp/jpg")
-    # @app.snapshot = File.open("/home/zhiliang/code/liveinapp/jpg")
-    
+    @app.user_name = current_user.name
+    @app.node_name = @app.node.name
     respond_to do |format|
       if @app.save
         format.html { redirect_to @app, notice: 'App was successfully created.' }

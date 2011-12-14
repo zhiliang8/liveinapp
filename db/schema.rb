@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111212142533) do
+ActiveRecord::Schema.define(:version => 20111214005711) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(:version => 20111212142533) do
     t.integer  "user_id"
     t.string   "user_name"
     t.string   "node_name"
-    t.string   "snapshot",   :limit => nil
+    t.string   "snapshot"
+    t.string   "status",     :default => "0"
   end
 
   create_table "nodes", :force => true do |t|

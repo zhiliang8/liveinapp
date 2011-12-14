@@ -15,7 +15,7 @@ class NodesController < ApplicationController
   # GET /nodes/1.json
   def show
     @node = Node.find(params[:id])
-    @apps = @node.apps.page params[:page]
+    @apps = @node.apps.approved.page params[:page]
     
   end
 
@@ -42,8 +42,7 @@ class NodesController < ApplicationController
 
     respond_to do |format|
       if @node.save
-        format.html { redirect_to @node, notice: 'Node was successfully created.' }
-        format.json { render json: @node, status: :created, location: @node }
+        format.html { redirect_to root_path }
       else
         format.html { render action: "new" }
         format.json { render json: @node.errors, status: :unprocessable_entity }
