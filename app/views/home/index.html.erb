@@ -1,11 +1,11 @@
 <div class="apps">
+  <ul class="media-grid">
   <% @apps.each do |app| %>
-    <% if app.snapshot? %>
-    <%= link_to(image_tag(app.snapshot_url(:thumb)), app)%>
-    <% else %>
-      <%= link_to app.name, app%>
-    <% end %>
+    <li>
+      <%= link_to(image_tag(app.snapshot_url(:large), :class => "thumbnail"), app)%>
+    </li>
   <% end %>
+  </ul>
 <%= paginate @apps %>
 </div>
 <% content_for :sidebar do%>
