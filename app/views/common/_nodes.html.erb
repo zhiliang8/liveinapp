@@ -1,15 +1,11 @@
-<div class="span4">
-  <div class="well">
-    <% init_nodes_data %>
-    <% @roots.each do |parent|%>
-    <h5><%= link_to parent.name, node_path(parent) %></h5>
-    <ul>
-      <% @childless.each do |child|%>
-        <% if parent.id==child.parent_id %>
-        <li><%= link_to child.name, node_path(child)%></li>
-        <% end %>
-      <% end %>
-    </ul>
+<% init_nodes_data %>
+<% @roots.each do |parent|%>
+<h5><%= link_to parent.name, node_path(parent) %></h5>
+<ul>
+  <% @childless.each do |child|%>
+    <% if parent.id==child.parent_id %>
+    <li><%= link_to child.name, node_path(child)%></li>
     <% end %>
-  </div>
-</div>
+  <% end %>
+</ul>
+<% end %>

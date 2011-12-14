@@ -1,6 +1,7 @@
 # encoding: utf-8
 class AppsController < ApplicationController
   layout 'two_column', :only => [:new, :edit]
+  before_filter :authenticate_user!, :except => [:index]
   # GET /apps
   # GET /apps.json
   def index

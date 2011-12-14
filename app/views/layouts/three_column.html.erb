@@ -1,5 +1,16 @@
 <% content_for :content do %>
-  <%= render "common/nodes"%>
+  <div class="span4">
+    <div class="well">
+    <%= render "common/nodes"%>
+    </div>
+    <div class="well">
+      <h4>统计</h4>
+      <ul>
+        <li>用户数： <%= @user_count%> 个</li>
+        <li>应用数： <%= @app_count%> 个</li>
+      </ul>
+    </div>
+  </div>
   <div class="span8">
     <%= yield %>
   </div>
