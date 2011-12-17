@@ -1,12 +1,24 @@
-<h2>新添加云应用</h2>
-<div class="apps">
-  <ul class="media-grid">
-  <% @apps.each do |app| %>
-    <li>
-      <%= link_to(image_tag(app.snapshot_url(:large), :class => "thumbnail"), app)%>
-    </li>
-  <% end %>
-  </ul>
+<h2>最新云应用</h2>
+<div id="apps-wrapper">
+  <div class="apps">
+    <% @apps.each do |app| %>
+    <div id="app-<%= app.id%>" class="app-item">
+      <div class="clearfix">
+        <h3 class="app-name"><%= link_to app.name, app %></h3>
+        <span class="app-node"><%= link_to ">>#{app.node.name}", app.node %></span>
+      </div>
+      <div class="clearfix">
+        <div class="thumbnail">
+          <%= link_to(image_tag(app.snapshot_url(:thumb)), app)%>
+        </div>
+        <div class="app-content">
+          <%= app.desc %>
+          <p><span></span></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 <%= paginate @apps %>
 </div>
 <% content_for :sidebar do%>

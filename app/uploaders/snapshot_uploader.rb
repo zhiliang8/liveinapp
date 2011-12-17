@@ -17,7 +17,7 @@ class SnapshotUploader < CarrierWave::Uploader::Base
   end
   process :resize_to_fit => [800, 800]
   version :large do
-    process :resize_to_fit => [330,230]
+    process :resize_to_fit => [230,230]
   end
   version :thumb do
     process :resize_to_fit => [210,150]

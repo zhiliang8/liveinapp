@@ -42,7 +42,7 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 gem 'mini_magick'
 gem 'carrierwave'
-gem 'websnap'
+# gem 'websnap'
 # Deploy with Capistrano
 # gem 'capistrano'
 
@@ -58,4 +58,8 @@ end
 
 group :test do
   
+end
+
+group :production do
+  gem 'mysql2'
 end

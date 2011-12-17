@@ -1,6 +1,5 @@
 # encoding: utf-8
 class AppsController < ApplicationController
-  layout 'two_column', :only => [:new, :edit]
   before_filter :authenticate_user!, :except => [:index]
   # GET /apps
   # GET /apps.json
@@ -35,7 +34,7 @@ class AppsController < ApplicationController
       @app.node = @node
     end
     respond_to do |format|
-      format.html # new.html.erb
+      format.html {render :layout => 'two_column'}
       format.json { render json: @app }
     end
   end
@@ -43,6 +42,7 @@ class AppsController < ApplicationController
   # GET /apps/1/edit
   def edit
     @app = App.find(params[:id])
+    render :layout => 'two_column'
   end
 
   # POST /apps

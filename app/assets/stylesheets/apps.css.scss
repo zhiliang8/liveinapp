@@ -1,3 +1,48 @@
 // Place all the styles related to the apps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap/mixins";
+.clearfix {
+  @include clearfix()
+}
+body {
+  padding-top: 60px;
+}
+.box {
+  background-color: white;
+  padding: 10px;
+  margin: 0 0 20px 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  border: 1px solid #eee;
+}
+.block {
+  display: block;
+}
+.apps  {
+}
+.apps .app-item {
+  position: relative;
+  border-bottom: 1px solid #DDD;
+  margin-bottom: 15px;
+  height: 200px;
+}
+.app-item .app-name {
+  float: left;
+}
+.app-item .app-node {
+  float: right;
+}
+.apps .thumbnail {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+}
+.apps .app-content {
+  padding-left: 130px;
+}
