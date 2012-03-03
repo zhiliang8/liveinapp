@@ -1,19 +1,20 @@
-<fieldset>
-  <legend>个人资料设置</legend>
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, :wrapper => :inline) do |f| %>
-  <div class="inputs">
+<div class="box">
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put,:class => "form-horizontal" }) do |f| %>
+  <fieldset>
+    <legend>
+      个人资料设置
+    </legend>
     <%= f.input :name, :required => true, :autofocus => true, :hint => "请不要轻易修改"%>
     <%= f.input :email, :required => true, :autofocus => true%>
     <%= f.input :password, :required => false, :hint => false  %>
     <%= f.input :password_confirmation, :required => false %>
     <%= f.input :current_password, :required => true %>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, "确认修改", :class => :primary %>
-  </div>
-<% end %>
-</fieldset>
+    <div class="form-actions">
+      <%= f.button :submit, "确认修改", :class => "btn-primary" %>
+    </div>
+  </fieldset>
+  <% end %>
+</div>
 <% content_for :sidebar do%>
-  头像,绑定帐号
-<% end %>
+头像,绑定帐号
+<% end %> 

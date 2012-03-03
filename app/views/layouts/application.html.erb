@@ -33,10 +33,10 @@
 					<ul class="nav pull-right" id="userbar">
 					  <% if user_signed_in? %>
 			        <li><%= link_to('个人主页', user_path(current_user.name)) %></li>
-			        <% if current_user.admin? %>
-			        <li><%= link_to('后台管理', rails_admin_path) %></li>
-			        <% end %>
 			        <li><%= link_to('个人资料设置', edit_user_registration_path) %></li>
+			        <% if current_user.admin? %>
+              <li><%= link_to('后台管理', rails_admin_path) %></li>
+              <% end %>
               <li><%= link_to('退出', destroy_user_session_path, :method => :delete) %></li>
             <% else %>
               <li><%= link_to('注册', new_user_registration_path)  %></li>

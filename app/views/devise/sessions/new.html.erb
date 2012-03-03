@@ -1,24 +1,18 @@
 <div class="box" id="login-form">
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
-<fieldset>
-  <legend>
-    登录
-  </legend>
-  <%= f.input :email, :required => false, :autofocus => true %>
-  <%= f.input :password, :required => false, :hint => false %>
-  <% if devise_mapping.rememberable? -%>
-  <div class="clearfix">
-    <label></label>
-    <div class="input">
-      <div class="inputs-list">
-        <label for="user_remember_me"><%= f.check_box :remember_me, :style => "width:auto;" %> <%= t("common.remember_me") %></label>
-      </div>
+  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
+  <fieldset>
+    <legend>
+      登录
+    </legend>
+    <%= f.input :email, :required => false, :autofocus => true %>
+    <%= f.input :password, :required => false, :hint => false %>
+    <% if devise_mapping.rememberable? -%>
+    <%= f.input :remember_me, :label => false do %> <label class="checkbox" for="user_remember_me"><%= f.check_box :remember_me %><%= t("common.remember_me") %></label>
+    <% end %>
+    <% end -%>
+    <div class="form-actions">
+      <%= f.button :submit, "登录", :class => "btn-primary" %>  或者 <%= link_to "还未注册?", new_registration_path(resource_name) %> | <%= link_to "忘记密码?", new_password_path(resource_name) %>
     </div>
-  </div>
-  <% end -%>
-  <div class="form-actions">
-    <%= f.button :submit, "登录", :class => "btn-primary" %>  或者 <%= link_to "还未注册?", new_registration_path(resource_name) %> | <%= link_to "忘记密码?", new_password_path(resource_name) %>
-  </div>
-</fieldset>
-<% end %>
+  </fieldset>
+  <% end %>
 </div>

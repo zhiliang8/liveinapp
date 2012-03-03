@@ -1,21 +1,15 @@
-<%= simple_form_for(@app, :wrapper => "inline") do |f| %>
+<%= simple_form_for(@app, :html => { :class => "form-horizontal" }) do |f| %>
   <fieldset>
   <legend><%= @app.new_record? ? t("apps.create_app") : t("apps.edit_app") %></legend>
-    <div class="inputs">
-      <%= f.input :name do %>
-        <span class="span3">
+    <%= f.input :name do %>
         <%= f.grouped_collection_select :node_id, Node.all, :children, :name, :id, :name  %>
-        </span>
-        <span class="span8">
-          <%= f.text_field :name, :class => "xlarge" %>
-        </span>
-      <% end %>
-      <%= f.input :url, :placeholder => "http://", :input_html => { :class => 'xxlarge' }%>
-      <%= f.input :desc, :as => :text, :input_html => { :class => 'xxlarge' } %>
-    </div>
+        <%= f.text_field :name, :class => "span3"%>
+    <% end %>
+    <%= f.input :url, :placeholder => "http://", :input_html => { :class => 'xxlarge' }%>
+    <%= f.input :desc, :as => :text, :input_html => {:rows=>5, :class => :xxlarge} %>
   
-    <div class="actions">
-      <%= f.button :submit, t("common.save"), :class => "primary", :disable_with => t("common.saving")%>
+    <div class="form-actions">
+      <%= f.button :submit, t("common.save"), :class => "btn-primary", :disable_with => t("common.saving")%>
       <%= link_to t("common.cancel"), @app.id.blank? ? root_path : app_path(@app), :class => "btn"%>
     </div>
   </fieldset>
