@@ -1,0 +1,29 @@
+<% content_for :content do %>
+  <div class="span3">
+    <div class="box">
+      <div class="row-fluid owner">
+        <div class="span4">
+          <%= user_avatar_tag(@user, 70)%>
+        </div>
+        <div class="span8">
+          <p class="user-name"><%= link_to(content_tag(:strong, @user.name), user_path(@user.name))%></p>
+          <%if current_user.present? && current_user.id==@user.id%>
+            <p><%= link_to("修改资料", edit_user_registration_path)%></p>
+          <% else %>
+            <p><%= link_to("关注此人", "#")%></p>
+          <% end %>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="span6">
+    <%= yield %>
+  </div>
+  <div class="span3">
+    <%= yield :sidebar%>
+  </div>
+<% end %>
+<%= render :template => "layouts/application"%>
+

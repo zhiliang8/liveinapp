@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'two_column'
+  layout 'user'
   set_tab :home, :users, :only => %(show)
   before_filter :find_user, :only => [:show]
   def show
