@@ -1,8 +1,6 @@
 # coding:utf-8
 class AccountController < Devise::RegistrationsController
   layout 'two_column', :except => ['new', 'create']
-  set_tab :dashboard, :only => %w(index)
-  set_tab :my_account, :except => %w(index)
   set_tab :basic, :account, :only => %(edit)
   set_tab :password, :account, :only => %(edit_password)
   

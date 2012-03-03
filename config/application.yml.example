@@ -1,0 +1,23 @@
+defaults: &defaults
+  app_name: "Live In APP"
+  foot_html: "&copy; liveinapp.com."
+  domain: "127.0.0.1:3000"    
+  admin_emails: 
+    - "jordzhang@gmail.com"
+  google_analytics_key: ""
+  email_sender: 'jordzhang@gmail.com'
+  aws_access_key_id: ''
+  aws_secret_access_key: ''
+  github_token: ""
+  github_secret: ""
+  douban_token: ""
+  douban_secret: ""
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   validates :name, :presence => true, :length => {:in => 3..20}, :uniqueness => {:case_sensitive => false}
   def admin?
     return true if Settings.admin_emails.include?(self.email)
-    return false;
+    return false
   end
 end
