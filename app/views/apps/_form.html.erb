@@ -5,8 +5,19 @@
         <%= f.grouped_collection_select :node_id, Node.all, :children, :name, :id, :name  %>
         <%= f.text_field :name, :class => "span3"%>
     <% end %>
-    <%= f.input :url, :placeholder => "http://", :input_html => { :class => 'xxlarge' }%>
-    <%= f.input :desc, :as => :text, :input_html => {:rows=>5, :class => :xxlarge} %>
+    <%= f.input :url, :placeholder => "http://", :input_html => { :class => 'input-xlarge' }%>
+    <%= f.input :snapshot do %>
+      <%= f.hidden_field :snapshot_cache%>
+      <div class="row">
+        <div class="span4">
+          <%= f.file_field :snapshot, :class => 'span3'%>
+        </div>
+        <div class="span12">
+        <%= image_tag(@app.snapshot_url(:thumb)) if @app.snapshot?%>
+        </div>
+      </div>
+    <% end %>
+    <%= f.input :desc, :as => :text, :input_html => {:rows=>5, :class => 'input-xlarge'} %>
   
     <div class="form-actions">
       <%= f.button :submit, t("common.save"), :class => "btn-primary", :disable_with => t("common.saving")%>

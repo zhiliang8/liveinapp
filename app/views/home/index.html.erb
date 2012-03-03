@@ -1,3 +1,4 @@
+<div class="box">
 <h2>最新云应用</h2>
 <div id="apps-wrapper">
   <div class="apps">
@@ -19,9 +20,12 @@
     </div>
     <% end %>
   </div>
-<%= paginate @apps %>
+<%= paginate @apps, :theme => 'bootstrap' %>
+</div>
 </div>
 <% content_for :sidebar do%>
-  <%= render :partial => "common/add_node_link" %>
+  <div class="box">
+    <%= render :partial => "common/add_node_link" %>
+  </div>
 <% end %>
 

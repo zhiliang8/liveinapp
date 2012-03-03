@@ -12,6 +12,7 @@
         password: "密码"
         password_confirmation: "确认密码"
         website: "个人主页"
+        tags: "个人标签"
         last_logined_at: "上次登录时间"
         tagline: "签名"
         state: "状态"
@@ -39,6 +40,7 @@
       app:
         name: 名称
         url: 应用URL
+        snapshot: 应用快照
         desc: 描述
     errors:
       models:

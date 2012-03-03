@@ -1,0 +1,5 @@
+<%= tabs_tag :namespace => :account, :open_tabs => {:class => "nav nav-tabs"} do |tag| %>
+  <%= tag.basic "基本资料", edit_user_registration_path %>
+  <%= tag.password "修改密码", users_edit_password_path %>
+  <%= tag.notice "通知设置", '#' %>
+<% end %>

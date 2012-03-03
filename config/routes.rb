@@ -5,7 +5,11 @@ Liveinapp::Application.routes.draw do
 
   resources :nodes
 
-  devise_for :users, :path => 'account'
+  devise_for :users, :path => 'account', :controllers => {:registrations => 'account'} do
+    get '/dashboard' => 'account#index'
+    get '/users/edit_avatar' => 'account#edit_avatar'
+    get '/users/edit_password' => 'account#edit_password'
+  end
   resources :users
   root :to => 'home#index'
 
