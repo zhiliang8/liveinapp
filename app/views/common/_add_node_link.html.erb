@@ -5,9 +5,9 @@
   <% end %>
   <p style="text-align: center;">
     <% if @node.nil?%>
-      <%= link_to "提交应用", new_app_path, :class => "btn success"%>
+      <%= link_to "提交应用", new_app_path, :class => "btn btn-success"%>
     <% else %>
-      <%= link_to "提交应用", new_app_path(:node => @node), :class => "btn success"%>
+      <%= link_to "提交应用", new_app_path(:node => @node), :class => "btn btn-success"%>
     <% end %>
   </p>
 </div>

@@ -1,20 +1,20 @@
 <% content_for :content do %>
-  <div class="span4">
-    <div class="well">
+  <div class="span3">
+    <div class="box">
     <%= render "common/nodes"%>
     </div>
-    <div class="well">
-      <h4>统计</h4>
+    <div class="box">
+      <h2>统计</h2>
       <ul>
         <li>用户数： <%= @user_count%> 个</li>
         <li>应用数： <%= @app_count%> 个</li>
       </ul>
     </div>
   </div>
-  <div class="span8">
+  <div class="span6">
     <%= yield %>
   </div>
-  <div class="span4">
+  <div class="span3">
     <%= yield :sidebar%>
   </div>
 <% end %>

@@ -2,13 +2,15 @@
 <html>
 	<head>
 		<title>Liveinapp</title>
-		<%= stylesheet_link_tag    "application" %>
-		<%= javascript_include_tag "application" %>
+		<%= stylesheet_link_tag "application", params[:controller]%>
+    <%= yield :styles %>
+    <%= javascript_include_tag "application", params[:controller] %>
+    <%= yield :scripts %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<div class="topbar">
-			<div class="topbar-inner">
+		<div class="navbar">
+			<div class="navbar-inner">
 				<div class="container">
 					<a class="brand" href="/"><%= Settings.app_name %></a>
 					<ul class="nav">
@@ -25,22 +27,17 @@
               <a href="#">域名服务</a>
             </li>
 					</ul>
-					<form class="pull-left" action="">
-            <input type="text" placeholder="搜索">
+					<form class="navbar-search pull-left" action="">
+            <input type="text" class="search-query span3" placeholder="搜索">
           </form>
-					<ul class="nav secondary-nav" id="userbar">
+					<ul class="nav pull-right" id="userbar">
 					  <% if user_signed_in? %>
-					    <li class="dropdown">
-					      <a href="#" class="dropdown-toggle"><%= current_user.name%></a>
-					      <ul class="dropdown-menu">
-					        <li><%= link_to('个人主页', user_path(current_user.name)) %></li>
-					        <% if current_user.admin? %>
-					        <li><%= link_to('后台管理', rails_admin_path) %></li>
-					        <% end %>
-					        <li><%= link_to('个人资料设置', edit_user_registration_path) %></li>
-                  <li><%= link_to('退出', destroy_user_session_path, :method => :delete) %></li>
-                </ul>
-              </li> 
+			        <li><%= link_to('个人主页', user_path(current_user.name)) %></li>
+			        <% if current_user.admin? %>
+			        <li><%= link_to('后台管理', rails_admin_path) %></li>
+			        <% end %>
+			        <li><%= link_to('个人资料设置', edit_user_registration_path) %></li>
+              <li><%= link_to('退出', destroy_user_session_path, :method => :delete) %></li>
             <% else %>
               <li><%= link_to('注册', new_user_registration_path)  %></li>
               <li><%= link_to('登录', new_user_session_path)  %></li>

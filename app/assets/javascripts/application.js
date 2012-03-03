@@ -7,9 +7,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
-$(function() {
-  $(".alert-message").alert();
-  $("#userbar").dropdown();
-  $("select").chosen();
-})
+//= require chosen
+//= require custom
