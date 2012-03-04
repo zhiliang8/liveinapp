@@ -17,8 +17,13 @@
         </div>
       </div>
     <% end %>
-    <%= f.input :desc, :as => :text, :input_html => {:rows=>5, :class => 'input-xlarge'} %>
-  
+    <%= f.input :desc, :as => :text, :input_html => {:rows=>8, :class => 'input-xxlarge'} %>
+    <%= f.input :trial, :wrapper => :append, :hint => "不填、或者填0表示没有免费试用" do %>
+      <%= f.input_field :trial, :class => "input-mini" %>
+      <%= content_tag :span, "天", :class => "add-on" %>
+    <% end %>
+    <%= f.input :pricing_url, :placeholder => "http://", :input_html => { :class => 'input-xlarge' }%>
+    <%= f.input :pricing, :as => :text, :input_html => {:rows=>8, :class => 'input-xxlarge'}  %>
     <div class="form-actions">
       <%= f.button :submit, t("common.save"), :class => "btn-primary", :disable_with => t("common.saving")%>
       <%= link_to t("common.cancel"), @app.id.blank? ? root_path : app_path(@app), :class => "btn"%>

@@ -41,7 +41,10 @@
         name: 名称
         url: 应用URL
         snapshot: 应用快照
-        desc: 描述
+        desc: 特征描述
+        trial: 免费试用
+        pricing_url: 价格表链接
+        pricing: 价格表
     errors:
       models:
         user: 用户        
