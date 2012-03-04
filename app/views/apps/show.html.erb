@@ -1,20 +1,40 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @app.name %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @app.url %>
-</p>
-
-<p>
-  <b>Desc:</b>
-  <%= @app.desc %>
-</p>
-
-
-<%= link_to 'Edit', edit_app_path(@app) %> |
-<%= link_to 'Back', apps_path %>
+<div class="span12">
+  <div class="box app-top">
+    <div class="row-fluid">
+      <div class="span3">
+        <%= link_to(image_tag(@app.snapshot_url(:thumb)), @app)%>
+      </div>
+      <div>
+        <p class="app-title">
+          <%= link_to content_tag(:strong, @app.name), app_path(@app)%>
+        </p>
+        <p>
+          <%= link_to content_tag(:strong, "<i class='icon-home'></i>".html_safe+"#{@app.url}"), @app.url, :target => "_blank"%>
+        </p>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span12">
+        <%= @app.desc %>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span8">
+      <div class="box">
+        价格表
+      </div>
+      <div class="box">
+        评论
+      </div>
+    </div>
+    <div class="span4">
+      <div class="box">
+        <h2>谁在用</h2>
+      </div>
+      <div class="box">
+        <h2>同类应用</h2>
+      </div>
+    </div>
+  </div>
+</div>

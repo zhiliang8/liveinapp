@@ -1,31 +1,35 @@
 <div class="box">
-<h2>最新云应用</h2>
-<div id="apps-wrapper">
-  <div class="apps">
-    <% @apps.each do |app| %>
-    <div id="app-<%= app.id%>" class="app-item">
-      <div class="clearfix">
-        <h3 class="app-name"><%= link_to app.name, app %></h3>
-        <span class="app-node"><%= link_to ">>#{app.node.name}", app.node %></span>
-      </div>
-      <div class="clearfix">
-        <div class="thumbnail">
-          <%= link_to(image_tag(app.snapshot_url(:thumb)), app)%>
+  <h2>最新云应用</h2>
+  <div id="apps">
+    <ul class="unstyled">
+      <% @apps.each do |app| %>
+      <li class="row-fluid" id="app-<%= app.id%>">
+        <div class="row-fluid">
+          <div class="span3">
+            <%= link_to(image_tag(app.snapshot_url(:thumb)), app, :class => "thumbnail")%>
+          </div>
+          <div class="span9 info">
+            <p class="app-title">
+              <%= link_to content_tag(:strong, app.name), app_path(app)%>
+            </p>
+            <p>
+              <strong>评分：</strong>5个星
+            </p>
+          </div>
         </div>
-        <div class="app-content">
-          <%= app.desc %>
-          <p><span></span></p>
+        <div class="row-fluid">
+          <div class="span12">
+            <%= app.desc %>
+          </div>
         </div>
-      </div>
-    </div>
-    <% end %>
+      </li>
+      <% end %>
+    </ul>
+    <%= paginate @apps, :theme => 'bootstrap' %>
   </div>
-<%= paginate @apps, :theme => 'bootstrap' %>
-</div>
 </div>
 <% content_for :sidebar do%>
-  <div class="box">
-    <%= render :partial => "common/add_node_link" %>
-  </div>
-<% end %>
-
+<div class="box">
+  <%= render :partial => "common/add_node_link" %>
+</div>
+<% end %> 
