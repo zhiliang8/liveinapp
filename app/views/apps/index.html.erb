@@ -1,27 +1,12 @@
-<h1>Listing apps</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Url</th>
-    <th>Desc</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @apps.each do |app| %>
-  <tr>
-    <td><%= app.name %></td>
-    <td><%= app.url %></td>
-    <td><%= app.desc %></td>
-    <td><%= link_to 'Show', app %></td>
-    <td><%= link_to 'Edit', edit_app_path(app) %></td>
-    <td><%= link_to 'Destroy', app, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New App', new_app_path %>
+<div class="box">
+  <h2><%= @node.name %></h2>
+  <div id="apps">
+    <%= render :partial => "common/app", :collection => @apps %>
+    <%= paginate @apps, :theme => 'bootstrap' %>
+  </div>
+</div>
+<% content_for :sidebar do%>
+<div class="box">
+  <%= render :partial => "common/add_node_link" %>
+</div>
+<% end %> 

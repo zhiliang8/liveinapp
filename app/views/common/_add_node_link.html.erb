@@ -1,6 +1,3 @@
-<% if !@node.nil? %>
-<h4><%= link_to @node.name, node_path(@node) %></h4>
-<% end %>
 <p style="text-align: center;">
-  <%= link_to "提交应用", new_app_path(:node => (@node.nil? ? nil : @node) ), :class => "btn btn-success"%>
+  <%= link_to "提交应用", @node.nil? ? new_app_path : new_node_app_path(@node), :class => "btn btn-success"%>
 </p>

@@ -14,14 +14,14 @@
         </p>
       </div>
     </div>
-    <div>
+    <div class="row-fluid app-desc">
       <%= app.desc %>
     </div>
   </div>
   <div class="row-fluid app-bar">
     <div class="span12">
       <div class="pull-right">
-        <a href="<%= node_path(app.node) %>" target="_blank"><i class='icon-tag'></i><%= app.node_name %></a>
+        <a href="<%= node_apps_path(app.node) %>"><i class='icon-tag'></i><%= app.node_name %></a>
       </div>
     </div>
   </div>

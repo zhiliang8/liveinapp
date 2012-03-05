@@ -40,7 +40,7 @@
             <% end %>
             <li class="divider-vertical"></li>
             <li>
-                <%= link_to content_tag(:span, "提交应用", :class=>"label label-success"), new_app_path(:node => (@node.nil? ? nil : @node) )%>
+                <%= link_to content_tag(:span, "提交应用", :class=>"label label-success"), @node.nil? ? new_app_path : new_node_app_path(@node)%>
             </li>
 					</ul>
 				</div>

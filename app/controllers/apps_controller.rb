@@ -1,12 +1,13 @@
 # encoding: utf-8
 class AppsController < ApplicationController
-  layout 'two_column', :only => [:new, :edit]
+  layout 'two_column', :only => [:index, :new, :edit]
   before_filter :authenticate_user!, :except => [:index]
   # GET /apps
   # GET /apps.json
   def index
-    @apps = App.all
-
+    @node = Node.find(params[:node_id])
+    @apps = App.page params[:page]
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @apps }
