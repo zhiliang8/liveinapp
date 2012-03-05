@@ -1,28 +1,7 @@
 <div class="box">
   <h2>最新云应用</h2>
   <div id="apps">
-    <% @apps.each do |app| %>
-    <div class="row-fluid app-item" id="app-<%= app.id%>">
-      <div class="row-fluid">
-        <div class="span3">
-          <%= link_to(image_tag(app.logo_url(:thumb)), app, :class => "thumbnail")%>
-        </div>
-        <div class="span9 info">
-          <p class="app-title">
-            <%= link_to content_tag(:strong, app.name), app_path(app)%>
-          </p>
-          <p>
-            <strong>评分：</strong>5个星
-          </p>
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span12">
-          <%= app.desc %>
-        </div>
-      </div>
-    </div>
-    <% end %>
+    <%= render :partial => "common/app", :collection => @apps %>
     <%= paginate @apps, :theme => 'bootstrap' %>
   </div>
 </div>

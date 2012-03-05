@@ -22,11 +22,11 @@ body {
 // .nav-list .active > a:hover {
   // color: #08C;
 // }
-.nav-list .active > a, .nav-list .active > a:hover {
-  color: white;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #08C;
-}
+// .nav-list .active > a, .nav-list .active > a:hover {
+  // color: white;
+  // text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  // background-color: #08C;
+// }
 #login-form, #signup-form, #password-form {
   margin: 30px auto 70px;
   width: 480px;
@@ -36,8 +36,44 @@ body {
   padding: 6px 4px;
 }
 a i {
-  margin-right: 4px;
+  margin-right: 2px;
 }
-.app-title {
-  font-size: 30px;
+.box .pull-right {
+  font-size: 12px;
+  margin-right: 10px;
+}
+#apps, .apps {
+  margin: 0 -10px;
+  .app-item {
+    border-bottom: 1px solid #ddd;
+    -moz-box-shadow: 0 0 1px 0 #DDD;
+    -webkit-box-shadow: 0 0 1px 0 #DDD;
+    box-shadow: 0 0 1px 0 #DDD;
+    margin-top: 20px;
+  }
+  .app-main {
+    padding: 20px 20px;
+    padding-top: 0;
+  }
+  .app-bar {
+    height: 30px;
+    background-color: #eeefff;
+  }
+  .app-logo {
+    display: block;
+    width: 180px;
+    height: 100px;
+    float: left;
+    margin-right: 20px;
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0;
+    img {
+      margin: 10px 0 0 0;
+    }
+  }
+  .app-title strong {
+    color: #565656;
+    font-size: 30px;
+  }
 }

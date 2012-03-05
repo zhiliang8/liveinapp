@@ -27,7 +27,7 @@ class AppsController < ApplicationController
   # GET /apps/new
   # GET /apps/new.json
   def new
-    @app = App.new
+    @app = current_user.apps.build
     if params[:node].nil?
       @nodes = Node.all
     else
@@ -42,13 +42,13 @@ class AppsController < ApplicationController
 
   # GET /apps/1/edit
   def edit
-    @app = App.find(params[:id])
+    @app = current_user.apps.find(params[:id])
   end
 
   # POST /apps
   # POST /apps.json
   def create
-    @app = App.new(params[:app])
+    @app = current_user.apps.build(params[:app])
     @app.user_name = current_user.name
     @app.node_name = @app.node.name
     respond_to do |format|
@@ -65,8 +65,9 @@ class AppsController < ApplicationController
   # PUT /apps/1
   # PUT /apps/1.json
   def update
-    @app = App.find(params[:id])
-
+    @app = current_user.apps.find(params[:id])
+    @app.user_name = current_user.name
+    @app.node_name = @app.node.name
     respond_to do |format|
       if @app.update_attributes(params[:app])
         format.html { redirect_to @app, notice: 'App was successfully updated.' }
@@ -81,7 +82,7 @@ class AppsController < ApplicationController
   # DELETE /apps/1
   # DELETE /apps/1.json
   def destroy
-    @app = App.find(params[:id])
+    @app = current_user.apps.find(params[:id])
     @app.destroy
 
     respond_to do |format|

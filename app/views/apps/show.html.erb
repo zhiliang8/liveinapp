@@ -1,31 +1,24 @@
 <div class="span12">
-  <div class="box app-top">
-    <div class="row-fluid">
-      <div class="span3">
-        <%= link_to(image_tag(@app.logo_url(:thumb)), @app)%>
-      </div>
-      <div>
-        <p class="app-title">
-          <%= link_to content_tag(:strong, @app.name), app_path(@app)%>
-        </p>
-        <p>
-          <%= link_to content_tag(:strong, "<i class='icon-home'></i>".html_safe+"#{@app.url}"), @app.url, :target => "_blank"%>
-        </p>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span12">
-        <%= @app.desc %>
-      </div>
+  <div class="box">
+    <div class="apps">
+      <%= render :partial => "common/app", :locals => {:app => @app}%>
     </div>
   </div>
-  <div class="row-fluid">
+  <div class="row">
+    <div class="span12">
+      <div class="box">
+        <h2>
+          价格表
+          <div class="pull-right">
+            <a href="<%= @app.pricing_url%>" target="_blank"><i class="icon-eye-open"></i>官方链接</a>
+          </div>
+        </h2>
+        
+      </div>
+    </div>
     <div class="span8">
       <div class="box">
-        价格表
-      </div>
-      <div class="box">
-        评论
+        <h2>评论</h2>
       </div>
     </div>
     <div class="span4">
