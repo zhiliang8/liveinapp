@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120304114804) do
+ActiveRecord::Schema.define(:version => 20120305123711) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(:version => 20120304114804) do
     t.integer  "user_id"
     t.string   "user_name"
     t.string   "node_name"
-    t.string   "snapshot"
     t.string   "status",      :default => "0"
     t.integer  "trial"
     t.text     "pricing"
     t.string   "pricing_url"
+    t.string   "logo"
   end
 
   create_table "nodes", :force => true do |t|

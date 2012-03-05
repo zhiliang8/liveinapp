@@ -6,14 +6,14 @@
         <%= f.text_field :name, :class => "span3"%>
     <% end %>
     <%= f.input :url, :placeholder => "http://", :input_html => { :class => 'input-xlarge' }%>
-    <%= f.input :snapshot do %>
-      <%= f.hidden_field :snapshot_cache%>
+    <%= f.input :logo do %>
+      <%= f.hidden_field :logo_cache%>
       <div class="row">
         <div class="span4">
-          <%= f.file_field :snapshot, :class => 'span3'%>
+          <%= f.file_field :logo, :class => 'span3'%>
         </div>
         <div class="span12">
-        <%= image_tag(@app.snapshot_url(:thumb)) if @app.snapshot?%>
+        <%= image_tag(@app.logo_url(:thumb)) if @app.logo?%>
         </div>
       </div>
     <% end %>

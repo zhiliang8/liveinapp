@@ -1,8 +1,8 @@
 <h2><%= @node.name %></h2>
 <div class="apps">
   <% @apps.each do |app| %>
-    <% if app.snapshot? %>
-    <%= link_to(image_tag(app.snapshot_url(:thumb)), app)%>
+    <% if app.logo? %>
+    <%= link_to(image_tag(app.logo_url(:thumb)), app)%>
     <% else %>
       <%= link_to app.name, app%>
     <% end %>

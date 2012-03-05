@@ -40,7 +40,7 @@
       app:
         name: 名称
         url: 应用URL
-        snapshot: 应用快照
+        logo: 应用LOGO
         desc: 特征描述
         trial: 免费试用
         pricing_url: 价格表链接
