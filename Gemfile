@@ -19,6 +19,7 @@ end
 
 
 gem 'devise', '~>2.0'
+gem "cancan"
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'settingslogic'

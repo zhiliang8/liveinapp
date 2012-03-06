@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   set_tab :home, :users, :only => %(show)
   before_filter :find_user, :only => [:show]
   def show
-    @user = User.find(params[:id])
   end
   protected
   def find_user

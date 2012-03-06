@@ -2,8 +2,7 @@
 class AppsController < ApplicationController
   layout 'two_column', :only => [:index, :new, :edit]
   before_filter :authenticate_user!, :except => [:index]
-  # GET /apps
-  # GET /apps.json
+
   def index
     @node = Node.find(params[:node_id])
     @apps = App.page params[:page]
@@ -14,8 +13,6 @@ class AppsController < ApplicationController
     end
   end
 
-  # GET /apps/1
-  # GET /apps/1.json
   def show
     @app = App.find(params[:id])
 
@@ -25,8 +22,6 @@ class AppsController < ApplicationController
     end
   end
 
-  # GET /apps/new
-  # GET /apps/new.json
   def new
     @app = current_user.apps.build
     if params[:node].nil?
@@ -41,13 +36,11 @@ class AppsController < ApplicationController
     end
   end
 
-  # GET /apps/1/edit
   def edit
-    @app = current_user.apps.find(params[:id])
+    @app = App.find(params[:id])
+    render_403 unless can_change?(@app)
   end
 
-  # POST /apps
-  # POST /apps.json
   def create
     @app = current_user.apps.build(params[:app])
     @app.user_name = current_user.name
@@ -63,8 +56,6 @@ class AppsController < ApplicationController
     end
   end
 
-  # PUT /apps/1
-  # PUT /apps/1.json
   def update
     @app = current_user.apps.find(params[:id])
     @app.user_name = current_user.name
@@ -80,12 +71,12 @@ class AppsController < ApplicationController
     end
   end
 
-  # DELETE /apps/1
-  # DELETE /apps/1.json
   def destroy
-    @app = current_user.apps.find(params[:id])
+    @app = App.find(params[:id])
+    
+    render_403 unless can_change?(@app)
+    
     @app.destroy
-
     respond_to do |format|
       format.html { redirect_to apps_url }
       format.json { head :ok }
