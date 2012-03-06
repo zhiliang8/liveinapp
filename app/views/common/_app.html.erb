@@ -1,27 +1,31 @@
 <div class="app-item" id="app-<%= app.id%>">
-  <div class="row-fluid app-main">
-    <div class="row-fluid">
-      <%= link_to(image_tag(app.logo_url(:thumb)), app, :class => "app-logo box")%>
-      <div>
-        <p class="app-title">
-          <%= link_to content_tag(:strong, app.name), app_path(app)%>
-        </p>
-        <p>
-          <a href="<%= app.url %>" target="_blank"><i class='icon-home'></i><%= app.url %></a>
-        </p>
-        <p>
-          <a href="<%= user_path(app.user) %>" target="_blank"><i class='icon-user'></i><%= app.user.name %></a>
-        </p>
+  <div class="row-fluid">
+    <div class="app-main">
+      <div class="row-fluid">
+        <%= link_to(image_tag(app.logo_url(:thumb)), app, :class => "app-logo box")%>
+        <div>
+          <p class="app-title">
+            <%= link_to content_tag(:strong, app.name), app_path(app)%>
+          </p>
+          <p>
+            <a href="<%= app.url %>" target="_blank"><i class='icon-home'></i><%= app.url %></a>
+          </p>
+          <p>
+            <a href="<%= user_path(app.user) %>" target="_blank"><i class='icon-user'></i><%= app.user.name %></a>
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="row-fluid app-desc">
-      <%= app.desc %>
+      <div class="row-fluid app-desc">
+        <%= app.desc %>
+      </div>
     </div>
   </div>
   <div class="row-fluid app-bar">
     <div class="span12">
       <div class="pull-right">
+        <a href="<%= node_apps_path(app.node) %>"><i class='icon-comment'></i>评论</a>
         <a href="<%= node_apps_path(app.node) %>"><i class='icon-tag'></i><%= app.node_name %></a>
+        <%= timeago(app.created_at)%>
       </div>
     </div>
   </div>

@@ -3,3 +3,4 @@
     save: 保存
     cancel: 取消
     saving: 保存中
+    created_at: "%{time}发布"

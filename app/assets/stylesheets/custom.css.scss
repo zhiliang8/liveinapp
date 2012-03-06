@@ -19,14 +19,7 @@ body {
   padding-left: 10px;
   line-height: 30px;
 }
-// .nav-list .active > a:hover {
-  // color: #08C;
-// }
-// .nav-list .active > a, .nav-list .active > a:hover {
-  // color: white;
-  // text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  // background-color: #08C;
-// }
+
 #login-form, #signup-form, #password-form {
   margin: 30px auto 70px;
   width: 480px;
@@ -35,12 +28,17 @@ body {
 .navbar .label {
   padding: 6px 4px;
 }
-a i {
-  margin-right: 2px;
+a,span {
+  i {
+    margin-right: 2px;
+  }
 }
 .box .pull-right {
   font-size: 12px;
   margin-right: 10px;
+}
+.app-wrap {
+  padding-bottom: 0;
 }
 #apps, .apps {
   margin: 0 -10px;
@@ -55,12 +53,17 @@ a i {
     padding: 20px 20px;
     padding-top: 0;
     .app-desc {
-      maring-top: 10px;
+      color: #888;
+      margin-top: 6px;
     }
   }
   .app-bar {
     line-height: 30px;
     background-color: #eeefff;
+    a,span {
+      color: #777;
+      margin-right: 4px;
+    }
   }
   .app-logo {
     display: block;
