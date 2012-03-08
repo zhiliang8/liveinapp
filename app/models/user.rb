@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :apps
+  has_many :app_usings
+  has_many :using_apps, :through => :app_usings, :source => :app
+  
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   attr_accessor :password_confirmation, :by, :current_password
@@ -11,5 +14,13 @@ class User < ActiveRecord::Base
   def admin?
     return true if Settings.admin_emails.include?(self.email)
     return false
+  end
+  
+  def using(app)
+    self.using_apps.where('enddate IS NULL').count > 0
+  end
+  
+  def used(app)
+    self.using_apps.where('enddate IS NOT NULL').count > 0
   end
 end

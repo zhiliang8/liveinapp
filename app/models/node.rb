@@ -6,6 +6,14 @@ class Node < ActiveRecord::Base
   
   scope :hots, order("apps_count desc")
   
+  def all_apps
+    if self.leaf?
+      self.apps
+    else
+      App.where(:node_id => self.childless)
+    end
+  end
+  
   def self.hot_node_collection
     Node.hots.collect { |n| [n.name,n.id] }
   end

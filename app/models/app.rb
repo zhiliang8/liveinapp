@@ -2,6 +2,9 @@
 class App < ActiveRecord::Base
   belongs_to :node, :counter_cache => true
   belongs_to :user
+  has_many :appusings
+  has_many :users, :through => :appusings
+  
   validates :name, :presence => true
   validates :url, :presence => true, :format => {:with => /http:\/\/\w+/}, :uniqueness => true
   mount_uploader :logo, LogoUploader

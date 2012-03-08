@@ -1,3 +1,4 @@
+# coding: utf-8
 module ApplicationHelper
    def notice_message
     flash_messages = []
@@ -21,4 +22,5 @@ module ApplicationHelper
     options[:class] ||= "timeago"
     content_tag(:span, "<i class='icon-time'></i>#{t('common.created_at', :time => time_ago_in_words(time))}".html_safe, options.merge(:title => time.iso8601)) if time
   end
+  
 end

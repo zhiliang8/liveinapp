@@ -4,7 +4,7 @@
 <ul>
   <% @childless.each do |child|%>
     <% if parent.id==child.parent_id %>
-    <li><%= link_to child.name, node_apps_path(child)%></li>
+    <li><%= node_link(child) %></li>
     <% end %>
   <% end %>
 </ul>

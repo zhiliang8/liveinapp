@@ -1,3 +1,9 @@
-// .app-top {
-  // padding: 30px;
-// }
+.app-basic {
+  position: relative;
+  .app-using {
+    display: inline;
+    position: absolute;
+    right: -30px;
+    top: 0px;
+  }
+}
