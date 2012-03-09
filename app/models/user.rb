@@ -17,10 +17,6 @@ class User < ActiveRecord::Base
   end
   
   def using(app)
-    self.using_apps.where('enddate IS NULL').count > 0
-  end
-  
-  def used(app)
-    self.using_apps.where('enddate IS NOT NULL').count > 0
+    self.using_apps.where('app_id=? ', app.id).first
   end
 end
