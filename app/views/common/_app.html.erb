@@ -16,14 +16,10 @@
         </div>
         <% if params[:controller] == 'apps' %>
         <div class="my-state">
-          <% if current_user.present? %>
-            <% if current_user.using(app).nil? %>
-              <p><a href="#" class="btn btn-inverse">用过该应用</a></p>
-            <% else %>
-              <p><a href="#" class="btn btn-inverse disabled">已经使用</a></p>
-            <% end %>
+          <% if current_user.nil? || current_user.using(app).nil? %>
+            <p><%= link_to "用过该应用", using_app_path(app), :method => :post, :class=>"btn btn-inverse"%></p>
           <% else %>
-            <p><a href="#" class="btn btn-inverse">用过该应用</a></p>
+            <p><a href="#" class="btn btn-info disabled">我在使用</a></p>
           <% end %>
         </div>
         <% end %>
@@ -34,10 +30,13 @@
       <% if params[:controller] == 'apps' %>
         <div class="row-fluid app-using ">
           <div class="pull-right">
-            <% if @users.blank? %>
+            <% if app.using_user_count == 0 %>
               <span class="label label-info">还没有人使用</span>
             <% else %>
-              <%= @users.count %>使用：
+              <a href="#"><%= app.using_user_count %>人在使用：</a>
+              <% @users.each do |u| %>
+                <%= user_avatar_tag(u, 20)%>
+              <% end %>
             <% end %>
           </div>
         </div>

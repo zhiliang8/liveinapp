@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308160332) do
+ActiveRecord::Schema.define(:version => 20120310133134) do
 
   create_table "app_usings", :force => true do |t|
     t.integer  "app_id"
@@ -30,12 +30,13 @@ ActiveRecord::Schema.define(:version => 20120308160332) do
     t.integer  "user_id"
     t.string   "user_name"
     t.string   "node_name"
-    t.string   "status",      :default => "0"
+    t.string   "status",           :default => "0"
     t.integer  "trial"
     t.text     "pricing"
     t.string   "pricing_url"
     t.string   "logo"
     t.string   "versions"
+    t.integer  "using_user_count", :default => 0
   end
 
   create_table "nodes", :force => true do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20120308160332) do
     t.datetime "updated_at"
     t.string   "website"
     t.string   "tags"
+    t.integer  "using_app_count",                     :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

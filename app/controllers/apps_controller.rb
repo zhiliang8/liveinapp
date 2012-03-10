@@ -15,7 +15,7 @@ class AppsController < ApplicationController
 
   def show
     @app = App.find(params[:id])
-    @users = @app.users.includes(:user)
+    @users = @app.users.limit(10)
     
     respond_to do |format|
       format.html # show.html.erb
