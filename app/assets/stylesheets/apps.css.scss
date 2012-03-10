@@ -1,17 +1,14 @@
 .app-basic {
   position: relative;
-  .app-using {
+  .my-state {
     display: inline;
     position: absolute;
     right: -30px;
     top: 0px;
   }
 }
-.app-main .app-state {
+.app-main .app-using {
   margin-top: 15px;
   padding-top: 10px;
   border-top: 1px solid #E6E6E6;
-  .my-using span:first-child {
-    line-height: 30px;
-  }
 }

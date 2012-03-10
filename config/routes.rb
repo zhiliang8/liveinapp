@@ -4,7 +4,11 @@ Liveinapp::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :nodes do
-    resources :apps
+    resources :apps do
+      member do
+        post :using
+      end
+    end
   end
 
   devise_for :users, :path => 'account', :controllers => {:registrations => 'account'} do

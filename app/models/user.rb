@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
   def using(app)
     self.using_apps.where('app_id=? ', app.id).first
   end
+  
+  def use(app)
+    self.using_apps << app
+  end
 end

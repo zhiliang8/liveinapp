@@ -11,7 +11,4 @@ class App < ActiveRecord::Base
   
   # scope :approved, where(:status => '1')
   
-  def version_list
-    self.versions.present? ? self.versions.split(",") : []
-  end
 end

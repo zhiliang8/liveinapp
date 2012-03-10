@@ -63,7 +63,7 @@ class AppsController < ApplicationController
     @app.node_name = @app.node.name
     respond_to do |format|
       if @app.update_attributes(params[:app])
-        format.html { redirect_to @app, notice: 'App was successfully updated.' }
+        format.html { redirect_to @app, notice: '更新成功.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -81,6 +81,20 @@ class AppsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to apps_url }
       format.json { head :ok }
+    end
+  end
+  
+  def using
+    @app = App.find(params[:id])
+    @usable = current_user.use(@app)
+    respond_to do |format|
+      if @usable.save
+        format.html { redirect_to @app, notice: '操作成功.' }
+        format.json { head :ok }
+      else
+        format.html { redirect_to @app, notice: '操作失败.' }
+        format.json { head :ok }
+      end
     end
   end
 end
