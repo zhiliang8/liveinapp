@@ -11,10 +11,10 @@
             <a href="<%= app.url %>" target="_blank"><i class='icon-home'></i><%= app.url %></a>
           </p>
           <p>
-            <a href="<%= user_path(app.user) %>" target="_blank"><i class='icon-user'></i><%= app.user.name %></a>
+            <a href="<%= user_path(app.user.name) %>"><i class='icon-user'></i><%= app.user.name %></a>
           </p>
         </div>
-        <% if params[:controller] == 'apps' %>
+        <% if params[:controller] == 'apps' && params[:action] == 'show' %>
         <div class="my-state">
           <% if current_user.nil? || current_user.using(app).nil? %>
             <p><%= link_to "用过该应用", using_app_path(app), :method => :post, :class=>"btn btn-inverse"%></p>
@@ -25,9 +25,9 @@
         <% end %>
       </div>
       <div class="row-fluid app-desc">
-        <%= params[:controller] == 'home' ? truncate(app.desc, :length => 80) : app.desc %>
+        <%= params[:controller] == 'apps' && params[:action] == 'show' ? app.desc : truncate(app.desc, :length => 80) %>
       </div>
-      <% if params[:controller] == 'apps' %>
+      <% if params[:controller] == 'apps' && params[:action] == 'show' %>
         <div class="row-fluid app-using ">
           <div class="pull-right">
             <% if app.using_user_count == 0 %>
@@ -35,7 +35,7 @@
             <% else %>
               <a href="#"><%= app.using_user_count %>人在使用：</a>
               <% @users.each do |u| %>
-                <%= user_avatar_tag(u, 20)%>
+                <%= user_avatar_tag(u, 20, :rel => "tooltip", :title => u.name)%>
               <% end %>
             <% end %>
           </div>

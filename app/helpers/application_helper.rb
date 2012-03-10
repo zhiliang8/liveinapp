@@ -24,7 +24,7 @@ module ApplicationHelper
   end
   
   def user_avatar_tag(user,size = :normal, opts = {})
-    link = opts[:link] || true
+    link = opts.delete(:link) || true
     width = 48
     case size
     when :normal
@@ -44,9 +44,10 @@ module ApplicationHelper
     img = image_tag(img_src, :style => "width:#{width}px;height:#{width}px;")
     html = ""
     if link
-    html = %(<a href="#{user_path(user.name)}" class="user_avatar">#{img}</a>)
+      link_opts = opts.map{|k, v| %(#{k}="#{v}")}.join(" ")
+      html = %(<a href="#{user_path(user.name)}" class="user_avatar" #{link_opts}>#{img}</a>)
     else
-    html = img
+      html = img
     end
     raw html
   end

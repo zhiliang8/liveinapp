@@ -16,7 +16,7 @@ class AppsController < ApplicationController
   def show
     @app = App.find(params[:id])
     @users = @app.users.limit(10)
-    
+    @other_apps = @app.node.apps.where("id != ?", @app.id).limit(5)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @app }
@@ -25,10 +25,10 @@ class AppsController < ApplicationController
 
   def new
     @app = current_user.apps.build
-    if params[:node].nil?
+    if params[:node_id].nil?
       @nodes = Node.all
     else
-      @node = Node.find(params[:node])
+      @node = Node.find(params[:node_id])
       @app.node = @node
     end
     respond_to do |format|
@@ -48,7 +48,7 @@ class AppsController < ApplicationController
     @app.node_name = @app.node.name
     respond_to do |format|
       if @app.save
-        format.html { redirect_to @app, notice: 'App was successfully created.' }
+        format.html { redirect_to @app, notice: '提交成功。' }
         format.json { render json: @app, status: :created, location: @app }
       else
         format.html { render action: "new" }
@@ -63,7 +63,7 @@ class AppsController < ApplicationController
     @app.node_name = @app.node.name
     respond_to do |format|
       if @app.update_attributes(params[:app])
-        format.html { redirect_to @app, notice: '更新成功.' }
+        format.html { redirect_to @app, notice: '更新成功。' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -89,10 +89,10 @@ class AppsController < ApplicationController
     @usable = current_user.use(@app)
     respond_to do |format|
       if @usable.save
-        format.html { redirect_to @app, notice: '操作成功.' }
+        format.html { redirect_to @app, notice: '操作成功。' }
         format.json { head :ok }
       else
-        format.html { redirect_to @app, notice: '操作失败.' }
+        format.html { redirect_to @app, notice: '操作失败。' }
         format.json { head :ok }
       end
     end
