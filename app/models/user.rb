@@ -23,4 +23,5 @@ class User < ActiveRecord::Base
   def use(app)
     AppUsing.first_or_initialize(:user_id => self.id, :app_id => app.id)
   end
+  
 end

@@ -17,8 +17,16 @@
       </div>
     </div>
     <div class="span8">
-      <div class="box">
-        <h2>评论</h2>
+      <div id="comments" class="box">
+        <h2>评论，共<%= @app.comments_count%>条评论</h2>
+        <ul class="unstyled">
+          <%= render :partial => "comments/comment", :collection => @comments, :locals => {:app => @app }%>
+          <li>
+            <%= simple_form_for Comment.new, :remote => true, :url => app_comments_path(@app), :html => { :class => "form-horizontal" } do |f| %>
+              <%= f.input :body, :as => :text, :label => false %>
+            <% end %>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="span4">

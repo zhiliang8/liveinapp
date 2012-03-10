@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120310133134) do
+ActiveRecord::Schema.define(:version => 20120310150029) do
 
   create_table "app_usings", :force => true do |t|
     t.integer  "app_id"
@@ -37,7 +37,19 @@ ActiveRecord::Schema.define(:version => 20120310133134) do
     t.string   "logo"
     t.string   "versions"
     t.integer  "using_user_count", :default => 0
+    t.integer  "comments_count",   :default => 0
   end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "app_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["app_id"], :name => "index_comments_on_app_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "nodes", :force => true do |t|
     t.string   "name"

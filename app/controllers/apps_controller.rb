@@ -1,7 +1,7 @@
 # encoding: utf-8
 class AppsController < ApplicationController
   layout 'two_column', :only => [:index, :new, :edit]
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
     @node = Node.find(params[:node_id])
@@ -16,6 +16,7 @@ class AppsController < ApplicationController
   def show
     @app = App.find(params[:id])
     @users = @app.users.limit(10)
+    @comments = @app.comments
     @other_apps = @app.node.apps.where("id != ?", @app.id).limit(5)
     respond_to do |format|
       format.html # show.html.erb

@@ -2,7 +2,9 @@ Liveinapp::Application.routes.draw do
   resources :apps do 
     member do
       post :using
+      post :comment
     end
+    resources :comments
   end
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
