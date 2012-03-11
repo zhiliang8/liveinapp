@@ -1,0 +1,8 @@
+<% if @comment.errors.blank? %>
+  $("#comments ul").prepend('<%= escape_javascript(render(:partial => "comment", :locals => {:comment => @comment} ))%>')
+  $("#comments textarea").val("")
+<% else %>
+  $("#comments textarea").val("")
+  $("#comments textarea").focus()
+<% end %>
+$("#comments li:last").prepend('<%= escape_javascript(notice_message)%>')

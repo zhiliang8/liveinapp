@@ -22,8 +22,15 @@
         <ul class="unstyled">
           <%= render :partial => "comments/comment", :collection => @comments, :locals => {:app => @app }%>
           <li>
-            <%= simple_form_for Comment.new, :remote => true, :url => app_comments_path(@app), :html => { :class => "form-horizontal" } do |f| %>
-              <%= f.input :body, :as => :text, :label => false %>
+            <% if current_user.present? %>
+            <%= form_for Comment.new, :remote => true, :url => app_comments_path(@app) do |f| %>
+              <%= f.text_area :body, :rows=>4, :style => "width: 500px;" %>
+              <%= f.submit "提交评论", :class => "btn-primary", :disable_with => t("common.saving")%>
+            <% end %>
+            <% else %>
+              <p>
+                需要 <%= link_to('登录', new_user_session_path, :class => "btn btn-primary")  %> 才能评论，如果没有帐号请先 <%= link_to('注册', new_user_registration_path, :class => "btn btn-inverse")  %>
+              </p>
             <% end %>
           </li>
         </ul>
@@ -35,8 +42,7 @@
         <ul class="thumbnails">
           <% @other_apps.each do |app|%>
             <li>
-              <%= link_to(image_tag(app.logo_url(:thumb)), app)%><br />
-              <%= link_to(app.name, app)%>
+              <%= link_to(image_tag(app.logo_url(:thumb)), app, :title => app.url)%><br />
             </li>
           <% end %>
         </ul>
