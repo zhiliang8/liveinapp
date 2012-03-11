@@ -46,6 +46,7 @@
             </li>
           <% end %>
         </ul>
+        <div class="row-fluid"><%= link_to "更多应用(#{@app.node.apps_count})", node_apps_path(@app.node), :class => "pull-right"%></div>
       </div>
     </div>
   </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120310150029) do
+ActiveRecord::Schema.define(:version => 20120311134112) do
 
   create_table "app_usings", :force => true do |t|
     t.integer  "app_id"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20120310150029) do
     t.string   "website"
     t.string   "tags"
     t.integer  "using_app_count",                     :default => 0
+    t.integer  "apps_count",                          :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

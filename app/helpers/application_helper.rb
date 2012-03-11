@@ -13,10 +13,10 @@ module ApplicationHelper
     flash_messages.join("\n").html_safe
   end
   
-  def init_nodes_data
-    @roots = Node.roots
-    @childless = Node.childless
-  end
+  # def init_nodes_data
+    # @roots = Node.roots
+    # @childless = Node.childless
+  # end
   
   def timeago(time, options = {})
     options[:class] ||= "timeago"

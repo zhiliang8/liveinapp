@@ -5,7 +5,7 @@ class AppsController < ApplicationController
 
   def index
     @node = Node.find(params[:node_id])
-    @apps = @node.all_apps.latest.page params[:page]
+    @apps = @node.apps.latest.page params[:page]
     
     respond_to do |format|
       format.html # index.html.erb
