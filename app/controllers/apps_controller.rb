@@ -93,7 +93,7 @@ class AppsController < ApplicationController
         format.html { redirect_to @app, notice: '操作成功。' }
         format.json { head :ok }
       else
-        format.html { redirect_to @app, notice: '操作失败。' }
+        format.html { redirect_to @app, alert: '操作失败。' }
         format.json { head :ok }
       end
     end

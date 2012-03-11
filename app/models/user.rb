@@ -21,7 +21,10 @@ class User < ActiveRecord::Base
   end
   
   def use(app)
-    AppUsing.first_or_initialize(:user_id => self.id, :app_id => app.id)
+    @appUsing = AppUsing.new
+    @appUsing.user_id = self.id
+    @appUsing.app_id = app.id
+    @appUsing
   end
   
 end
