@@ -10,6 +10,7 @@ class App < ActiveRecord::Base
   validates :url, :presence => true, :format => {:with => /http:\/\/\w+/}, :uniqueness => true
   mount_uploader :logo, LogoUploader
   
+  scope :latest, order("created_at DESC")
   # scope :approved, where(:status => '1')
   
   
