@@ -1,0 +1,4 @@
+<h2><%= @node.nil? ? "网站介绍" : @node.name%></h2>
+<p>
+  <%= @node.nil? ? Settings.app_summary : @node.summary %>
+</p>
