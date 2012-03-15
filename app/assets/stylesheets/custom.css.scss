@@ -19,7 +19,13 @@ body {
   padding-left: 10px;
   line-height: 30px;
 }
-
+.box-break {
+  padding: 0;
+  h2 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 #login-form, #signup-form, #password-form {
   margin: 30px auto 70px;
   width: 480px;

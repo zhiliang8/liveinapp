@@ -9,4 +9,18 @@
 <div class="box">
   <%= render :partial => "common/add_node_link" %>
 </div>
+<div class="box box-break">
+  <h2>最新评论</h2>
+  <ul class="unstyled comments">
+    <% @comments.each do |comment|%>
+      <li>
+        <span><%= link_to comment.user.name, user_path(comment.user.name)%>评论<%= link_to comment.app.name, app_path(comment.app)%></span>
+        <div class="content">
+          <%= comment.body %>
+          <%= user_avatar_tag(comment.user, :normal)%>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
 <% end %> 

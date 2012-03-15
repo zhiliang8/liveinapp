@@ -1,0 +1,24 @@
+.comments {
+  li {
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px dotted #CCC;
+  }
+  span {
+    margin-bottom: 4px;
+    a {
+      padding: 0 4px;
+    }
+  }
+  .content {
+    background: #F7F7F7;
+    padding: 5px;
+    margin: 0;
+    word-wrap: break-word;
+    overflow: hidden;
+    .user_avatar {
+      float: right;
+      margin: 0 0 0 10px;
+    }
+  }
+}
