@@ -194,9 +194,7 @@
   activemodel:
     errors:
       <<: *errors
-  activerecord:
-    errors:
-      <<: *errors
+      
   activerecord:
     models:
       user: "用户"
@@ -217,6 +215,8 @@
         verified: "信任用户"
         remember_me: 记住登陆状态
         current_password: 旧密码
+        created_at: "加入时间"
+        updated_at: "修改时间"
       topic:
         title: "标题"
         user_id: "用户"
@@ -244,6 +244,7 @@
         pricing_url: 价格表链接
         pricing: 价格表
     errors:
+      <<: *errors
       models:
         user: 用户        
       messages:
@@ -334,3 +335,7 @@
     blank_slate:
       content: "暂时还没有%{resource_name}."
       link: "新建一个"
+    comments:
+      title_content: 评论
+      no_comments_yet: 还没有评论内容
+      add: "确认"
