@@ -6,11 +6,13 @@ class User < ActiveRecord::Base
   has_many :apps
   has_many :app_usings
   has_many :using_apps, :through => :app_usings, :source => :app
+  has_many :feeds, :as => :feedable
   
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :website, :tags
   attr_accessor :password_confirmation, :by, :current_password
   validates :name, :presence => true, :length => {:in => 3..20}, :uniqueness => {:case_sensitive => false}
+  
   def admin?
     return true if Settings.admin_emails.include?(self.email)
     return false

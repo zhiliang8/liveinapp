@@ -73,17 +73,17 @@ class AppsController < ApplicationController
     end
   end
 
-  def destroy
-    @app = App.find(params[:id])
-    
-    render_403 unless can_change?(@app)
-    
-    @app.destroy
-    respond_to do |format|
-      format.html { redirect_to apps_url }
-      format.json { head :ok }
-    end
-  end
+  # def destroy
+    # @app = App.find(params[:id])
+#     
+    # render_403 unless can_change?(@app)
+#     
+    # @app.destroy
+    # respond_to do |format|
+      # format.html { redirect_to apps_url }
+      # format.json { head :ok }
+    # end
+  # end
   
   def using
     @app = App.find(params[:id])
