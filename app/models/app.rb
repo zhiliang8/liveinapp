@@ -6,6 +6,7 @@ class App < ActiveRecord::Base
   has_many :users, :through => :app_usings
   has_many :comments
   
+  attr_protected :status. :using_user_count, :comments_count
   validates :name, :presence => true
   validates :url, :presence => true, :format => {:with => /http:\/\/\w+/}, :uniqueness => true
   mount_uploader :logo, LogoUploader

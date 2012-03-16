@@ -1,6 +1,6 @@
 defaults: &defaults
   app_name: "Live In APP"
-  app_summary: "云介绍"
+  app_summary: "发现云，推荐云"
   foot_html: "&copy; liveinapp.com."
   domain: "127.0.0.1:3000"    
   admin_emails: 

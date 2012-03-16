@@ -6,7 +6,7 @@ class AppsController < ApplicationController
   def index
     @node = Node.find(params[:node_id])
     @apps = @node.apps.latest.page params[:page]
-    
+    @appusings = AppUsing.where(:app_id => @node.apps.pluck(:id)).latest.limit(10)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @apps }

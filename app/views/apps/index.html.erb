@@ -12,4 +12,14 @@
 <div class="box">
   <%= render :partial => "common/summary"%>
 </div>
+<div class="box box-break">
+  <h2>最近在用</h2>
+  <ul class="unstyled appusings">
+    <% @appusings.each do |using|%>
+      <li>
+        <span><i class=" icon-user"></i><%= link_to using.user.name, user_path(using.user.name)%>正在用<%= link_to using.app.name, app_path(using.app)%></span>
+      </li>
+    <% end %>
+  </ul>
+</div>
 <% end %> 
