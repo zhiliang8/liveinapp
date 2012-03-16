@@ -1,4 +1,8 @@
 Liveinapp::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resources :apps do 
     member do
       post :using
@@ -7,7 +11,6 @@ Liveinapp::Application.routes.draw do
     resources :comments
   end
 
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :nodes do
     resources :apps

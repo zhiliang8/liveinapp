@@ -44,7 +44,8 @@ gem 'acts_as_tree_rails3'
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'activeadmin'
+# gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 gem 'mini_magick'
 gem 'carrierwave'

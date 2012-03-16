@@ -32,7 +32,7 @@
           </form>
 					<ul class="nav pull-right" id="userbar">
 					  <% if user_signed_in? %>
-			        <li><%= link_to('我的主页', user_path(current_user.name)) %></li>
+			        <li><%= link_to("我的主页", user_path(current_user.name)) %></li>
 			        <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			            <%= current_user.name%><b class="caret"></b>
