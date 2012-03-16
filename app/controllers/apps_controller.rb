@@ -46,7 +46,7 @@ class AppsController < ApplicationController
   def create
     @app = current_user.apps.build(params[:app])
     @app.user_name = current_user.name
-    @app.node_name = @app.node.name
+    @app.node_name = Node.find(params[:app][:node_id]).name
     respond_to do |format|
       if @app.save
         format.html { redirect_to @app, notice: '提交成功。' }

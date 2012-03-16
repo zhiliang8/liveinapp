@@ -1,6 +1,6 @@
 # coding:utf-8
 ActiveAdmin.register User do
-  menu :label => "用户"
+  menu :label => "用户", :priority => 3
   
   filter :name
   filter :email
@@ -8,15 +8,14 @@ ActiveAdmin.register User do
   
   index do
     column :id
-    column :name do |user|
-      link_to user.name, admin_user_path(user)
-    end 
+    column :name
     column :email
     column :created_at
     column :website
     column :tags
     column "使用的应用数", :using_app_count
     column "添加的应用数", :apps_count
+    default_actions
   end
   
   show do |user|
