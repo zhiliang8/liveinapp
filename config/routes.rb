@@ -1,4 +1,6 @@
 Liveinapp::Application.routes.draw do
+  get "feeds/index"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config

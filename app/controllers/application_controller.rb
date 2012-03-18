@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :owner?, :can_change?
   
+  before_filter :set_current_user
+  
   def owner?(item)
     return false if item.blank?
     return if current_user.blank?
@@ -30,4 +32,9 @@ class ApplicationController < ActionController::Base
       render :template => "/errors/unknown.html.erb", :status => status, :layout => "application"
     end
   end
+  
+  private
+    def set_current_user
+      User.current = current_user
+    end
 end

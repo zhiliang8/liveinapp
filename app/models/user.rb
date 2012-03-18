@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :apps
   has_many :app_usings
   has_many :using_apps, :through => :app_usings, :source => :app
-  has_many :feeds, :as => :feedable
+  has_many :feeds
   
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :website, :tags
@@ -29,4 +29,11 @@ class User < ActiveRecord::Base
     @appUsing
   end
   
+  def self.current
+    Thread.current[:user]
+  end
+  
+  def self.current=(user)
+    Thread.current[:user] = user
+  end
 end
