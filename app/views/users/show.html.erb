@@ -3,5 +3,6 @@
   <ul id="user-feeds" class="unstyled">
     <%= render :partial => "common/feed", :collection => @feeds %>
   </ul>
+  <%= paginate @feeds, :theme => 'bootstrap' %>
 </div>
 

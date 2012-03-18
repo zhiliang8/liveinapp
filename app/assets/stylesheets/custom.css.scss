@@ -92,3 +92,12 @@ a,span {
     font-size: 30px;
   }
 }
+
+#user-feeds li {
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  div.feed-content p {
+    line-height: 10px;
+  }
+}

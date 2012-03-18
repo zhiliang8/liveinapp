@@ -30,6 +30,8 @@ module ApplicationHelper
     when :normal
       width = 48
     when :small
+      width = 32
+    when :mini
       width = 16
     when :large
       width = 64

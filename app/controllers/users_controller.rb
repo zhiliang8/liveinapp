@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @using_apps = @user.using_apps.limit(5)
     @apps = @user.apps.limit(5)
-    @feeds = @user.feeds
+    @feeds = @user.feeds.page params[:page]
   end
   protected
   def find_user

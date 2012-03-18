@@ -25,13 +25,12 @@ class FeedObserver < ActiveRecord::Observer
       data[:user_name] = actor.name
       data[:user_avater] = actor.avatar if actor.respond_to?(:avatar)
       data[:user_email] = actor.email
-
-      case model.class
-      when Comment, AppUsing
-        target_title = model.app.name
-        target_id = model.app.id
-      else
-        target_title = model.respond_to?(:name) ? model.name : (model.respond_to?(:title) ? model.title : nil)
+      case model.class.name
+        when 'Comment', 'AppUsing'
+          target_title = model.app.name
+          target_id = model.app.id
+        else
+          target_title = model.respond_to?(:name) ? model.name : (model.respond_to?(:title) ? model.title : nil)
       end
       
       data[:target_id] = target_id if target_id.present?
