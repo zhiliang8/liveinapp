@@ -105,8 +105,9 @@ a,span {
     a:first-child {
       margin-left: 0;
     }
-    .feed-body {
-      color: #aaa;
-    }
+    
+  }
+  div.feed-content .feed-body {
+      color: #777;
   }
 }

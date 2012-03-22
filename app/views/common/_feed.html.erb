@@ -8,9 +8,12 @@
         <%= link_to feed.user.name, user_path(feed.user.name)%>
         <% case feed.target_type %>
         <% when 'Comment' %>
-          对<%= link_to feed.data['target_title'], app_path(feed.data['target_id'])%>应用发表评论
+        对<%= link_to feed.data['target_title'], app_path(feed.data['target_id'])%>应用发表评论
         <% when 'AppUsing' %>
-          正在使用<%= link_to feed.data['target_title'], app_path(feed.data['target_id'])%>
+        正在使用<%= link_to feed.data['target_title'], app_path(feed.data['target_id'])%>
+          
+        <% when 'App' %>
+        提交了<%= link_to feed.data['target_title'], app_path(feed.data['target_id'])%>应用
         <% end %>
         <%= timeago(feed.created_at, icon='')%>
       </p>
