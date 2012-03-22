@@ -4,15 +4,27 @@ class AppsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
-    @node = Node.find(params[:node_id])
-    @apps = @node.apps.latest.page params[:page]
-    @appusings = AppUsing.where(:app_id => @node.apps.pluck(:id)).latest.limit(10)
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @apps }
+    
+    if params[:node_id].present?
+      @node = Node.find(params[:node_id])
+      @apps = @node.apps.latest.page params[:page]
+      @appusings = AppUsing.where(:app_id => @node.apps.pluck(:id)).latest.limit(10)
+    elsif params[:user_id].present?
+      
+      @user = User.where(:name => params[:user_id]).first
+      @apps = @user.apps.latest.page params[:page]
+      render 'user_index', :layout => 'user'
+    else
+      
     end
   end
 
+  def used
+    @user = User.where(:name => params[:user_id]).first
+    @apps = @user.using_apps.latest.page params[:page]
+    render 'user_index', :layout => 'user'
+  end
+  
   def show
     @app = App.find(params[:id])
     @users = @app.users.limit(10)

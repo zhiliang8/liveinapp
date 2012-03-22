@@ -1,0 +1,7 @@
+<div class="box">
+  <h2><%= @user.name %><%= params[:action] == 'index' ? '提交' : '正在使用'%>的应用</h2>
+  <div id="apps">
+    <%= render :partial => "common/app", :collection => @apps %>
+    <%= paginate @apps, :theme => 'bootstrap' %>
+  </div>
+</div>

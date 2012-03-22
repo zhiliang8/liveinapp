@@ -23,7 +23,11 @@ Liveinapp::Application.routes.draw do
     get '/users/edit_avatar' => 'account#edit_avatar'
     get '/users/edit_password' => 'account#edit_password'
   end
-  resources :users
+  resources :users do
+    resources :apps do
+      get 'used', :on => :collection
+    end
+  end
   root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
