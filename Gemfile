@@ -38,9 +38,6 @@ gem 'acts_as_tree_rails3'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
 gem 'execjs'
 gem 'therubyracer'
 
@@ -62,5 +59,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'mysql2'
+  # gem 'mysql2'
+  # Use unicorn as the web server
+  gem 'unicorn'
 end

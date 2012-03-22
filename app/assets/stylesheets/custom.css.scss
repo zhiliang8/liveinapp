@@ -99,5 +99,14 @@ a,span {
   margin-bottom: 8px;
   div.feed-content p {
     line-height: 10px;
+    a {
+      margin: 0 4px;
+    }
+    a:first-child {
+      margin-left: 0;
+    }
+    .feed-body {
+      color: #aaa;
+    }
   }
 }

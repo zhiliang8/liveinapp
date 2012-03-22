@@ -15,10 +15,3 @@ class FeedData
     FeedData.new
   end
 end
-str = "{\"user_name\":\"user1\", \"user_email\":\"user1@example.com\"}"
-data = FeedData.parse(str)
-puts data.user_name
-
-str = "{\"user_name\":\"user2\", \"user_email\":\"user1@example.com\"}"
-data = FeedData.parse(str)
-puts data.user_name

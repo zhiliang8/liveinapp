@@ -18,9 +18,9 @@ module ApplicationHelper
     # @childless = Node.childless
   # end
   
-  def timeago(time, options = {})
+  def timeago(time, icon="<i class='icon-time'></i>", options = {})
     options[:class] ||= "timeago"
-    content_tag(:span, "<i class='icon-time'></i>#{t('common.created_at', :time => time_ago_in_words(time))}".html_safe, options.merge(:title => time.iso8601)) if time
+    content_tag(:span, "#{icon}#{time_ago_in_words(time)}".html_safe, options.merge(:title => time.iso8601)) if time
   end
   
   def user_avatar_tag(user,size = :normal, opts = {})
