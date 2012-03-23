@@ -15,30 +15,7 @@
         </div>
       </div>
     </div>
-    <% unless params[:controller] == 'apps' && ['index', 'used'].include?(params[:action])%>
-    <div class="box">
-      <h2>使用中的应用</h2>
-      <ul class="thumbnails">
-        <% @using_apps.each do |app|%>
-          <li>
-            <%= link_to(image_tag(app.logo_url(:thumb)), app, :title => app.url)%><br />
-          </li>
-        <% end %>
-      </ul>
-      <div class="row-fluid"><%= link_to "更多应用(#{@user.using_app_count})", used_user_apps_path(@user.name), :class => "pull-right"%></div>
-    </div>
-    <div class="box">
-      <h2>提交的应用</h2>
-      <ul class="thumbnails">
-        <% @apps.each do |app|%>
-          <li>
-            <%= link_to(image_tag(app.logo_url(:thumb)), app, :title => app.url)%><br />
-          </li>
-        <% end %>
-      </ul>
-      <div class="row-fluid"><%= link_to "更多应用(#{@user.apps_count})", user_apps_path(@user.name), :class => "pull-right"%></div>
-    </div>
-    <% end %>
+    <%= yield :sidebar %>
   </div>
   <div class="span9">
     <%= yield %>

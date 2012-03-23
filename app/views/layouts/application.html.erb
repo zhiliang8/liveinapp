@@ -18,14 +18,14 @@
 							<a href="/">首页</a>
 						</li>
 						<li>
-							<a href="#">项目管理</a>
-						</li>
-						<li>
-							<a href="#">主机服务</a>
-						</li>
-						<li>
-              <a href="#">域名服务</a>
+              <%= link_to "云应用", apps_path %>
             </li>
+            <li>
+              <%= link_to "新闻", "#" %>
+            </li>
+						<li>
+							<%= link_to "会员", users_path %>
+						</li>
 					</ul>
 					<form class="navbar-search pull-left" action="">
             <input type="text" class="search-query span3" placeholder="搜索云应用">
