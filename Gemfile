@@ -33,7 +33,10 @@ gem 'chosen_rails'
 gem 'breadcrumbs_on_rails'
 gem 'tabs_on_rails', :git => 'git@github.com:jordzhang/tabs_on_rails.git'
 
-gem 'acts_as_tree_rails3'
+# markdown
+gem 'redcarpet'
+
+# gem 'acts_as_tree_rails3'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
