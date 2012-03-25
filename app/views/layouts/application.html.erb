@@ -3,9 +3,9 @@
 	<head>
 		<title><%= Settings.app_name %></title>
 		<%= stylesheet_link_tag "application", params[:controller]%>
-    <%= yield :styles %>
-    <%= javascript_include_tag "application", params[:controller] %>
-    <%= yield :scripts %>
+		<%= yield :styles %>
+		<%= javascript_include_tag "application", params[:controller] %>
+		<%= yield :scripts %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
@@ -18,50 +18,56 @@
 							<a href="/">首页</a>
 						</li>
 						<li>
-              <%= link_to "云应用", apps_path %>
-            </li>
-            <li>
-              <%= link_to "新闻", "#" %>
-            </li>
+							<%= link_to "云应用", "#" %>
+						</li>
 						<li>
-							<%= link_to "博客", users_path %>
+							<%= link_to "新闻", "#" %>
 						</li>
 					</ul>
 					<form class="navbar-search pull-left" action="">
-            <input type="text" class="search-query span3" placeholder="搜索云应用">
-          </form>
+						<input type="text" class="search-query span3" placeholder="搜索云应用">
+					</form>
 					<ul class="nav pull-right" id="userbar">
-					  <% if user_signed_in? %>
-			        <li><%= link_to("我的主页", user_path(current_user.name)) %></li>
-			        <li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			            <%= current_user.name%><b class="caret"></b>
-			          </a>
-			          <ul class="dropdown-menu">
-			            <li><%= link_to("修改资料", edit_user_registration_path)%></li>
-			            <li><%= link_to('退出', destroy_user_session_path, :method => :delete) %></li>
-			          </ul>
-			        </li>
-            <% else %>
-              <li><%= link_to('注册', new_user_registration_path)  %></li>
-              <li><%= link_to('登录', new_user_session_path)  %></li>
-            <% end %>
-            <li class="divider-vertical"></li>
-            <li>
-                <%= link_to content_tag(:span, "提交应用", :class=>"label label-success"), @node.nil? ? new_app_path : new_node_app_path(@node)%>
-            </li>
+						<% if user_signed_in? %>
+						<li>
+							<%= link_to("我的主页", user_path(current_user.name)) %>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= current_user.name%><b class="caret"></b> </a>
+							<ul class="dropdown-menu">
+								<li>
+									<%= link_to("修改资料", edit_user_registration_path)%>
+								</li>
+								<li>
+									<%= link_to('退出', destroy_user_session_path, :method => :delete) %>
+								</li>
+							</ul>
+						</li>
+						<% else %>
+						<li>
+							<%= link_to('注册', new_user_registration_path)  %>
+						</li>
+						<li>
+							<%= link_to('登录', new_user_session_path)  %>
+						</li>
+						<% end %> <li class="divider-vertical"></li>
+						<li>
+							<%= link_to content_tag(:span, "提交应用", :class=>"label label-success"), @node.nil? ? new_app_path : new_node_app_path(@node)%>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="container">
-		  <%= notice_message %>
-		  <div class="row">
-  		  <%= content_for?(:content) ? yield(:content) : yield %>
-  		</div>
-  		<footer>
-        <p><%= raw Settings.foot_html %></p>
-      </footer>
+			<%= notice_message %>
+			<div class="row">
+				<%= content_for?(:content) ? yield(:content) : yield %>
+			</div>
+			<footer>
+				<p>
+					<%= raw Settings.foot_html %>
+				</p>
+			</footer>
 		</div>
 	</body>
 </html>

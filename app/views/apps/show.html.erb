@@ -8,12 +8,14 @@
     <div class="span12">
       <div class="box">
         <h2>
-          价格表
+          价格计划
           <div class="pull-right">
             <a href="<%= @app.pricing_url%>" target="_blank"><i class="icon-eye-open"></i>官方链接</a>
           </div>
         </h2>
-        
+        <div>
+        	<%= raw @app.pricing_html %>
+        </div>
       </div>
     </div>
     <div class="span8">

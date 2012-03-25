@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120318070018) do
+ActiveRecord::Schema.define(:version => 20120325135355) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20120318070018) do
     t.string   "versions"
     t.integer  "using_user_count", :default => 0
     t.integer  "comments_count",   :default => 0
+    t.text     "desc_html"
+    t.text     "pricing_html"
   end
 
   create_table "comments", :force => true do |t|
