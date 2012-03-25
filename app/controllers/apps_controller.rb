@@ -1,6 +1,6 @@
 # encoding: utf-8
 class AppsController < ApplicationController
-  layout 'two_column', :only => [:index, :new, :edit]
+  layout 'two_column', :only => [:index]
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
