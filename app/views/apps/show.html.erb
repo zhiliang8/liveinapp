@@ -39,6 +39,17 @@
       </div>
     </div>
     <div class="span4">
+      <div class="box" id="app-users">
+        <h2>有<strong><%= @app.using_user_count%></strong>人使用该应用</h2>
+        <ul class="thumbnails">
+        	<% @users.each do |user|%>
+        		<li>
+        			<%= user_avatar_tag(user, :small) %>
+        			<p><%= link_to user.name, user_path(user.name) %></p>
+        		</li>
+        	<% end %>
+        </ul>
+      </div>
       <div class="box">
         <h2>同类应用</h2>
         <ul class="thumbnails">

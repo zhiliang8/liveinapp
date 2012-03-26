@@ -32,3 +32,18 @@
     padding: 0 4px;
   }
 }
+#app-users ul.thumbnails {
+  margin-left: 0;
+  & > li {
+    margin: 0 4px 4px 8px;
+    text-align: center;
+    a.user-avatar {
+      padding: 4px;
+      display: block;
+      border: 1px solid #ddd;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

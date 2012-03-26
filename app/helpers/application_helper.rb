@@ -47,7 +47,7 @@ module ApplicationHelper
     html = ""
     if link
       link_opts = opts.map{|k, v| %(#{k}="#{v}")}.join(" ")
-      html = %(<a href="#{user_path(user.name)}" class="user_avatar" #{link_opts}>#{img}</a>)
+      html = %(<a href="#{user_path(user.name)}" class="user-avatar" title="#{user.name}" #{link_opts}>#{img}</a>)
     else
       html = img
     end

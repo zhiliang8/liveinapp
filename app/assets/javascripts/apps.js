@@ -1,4 +1,4 @@
 //= require jquery.autogrow
 $(function(){
-	$('textarea').autogrow();
+	$('#app-tab textarea').autogrow();
 })

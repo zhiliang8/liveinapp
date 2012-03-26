@@ -27,7 +27,7 @@ class AppsController < ApplicationController
   
   def show
     @app = App.find(params[:id])
-    @users = @app.users.limit(10)
+    @users = @app.users.limit(24)
     @comments = @app.comments
     @other_apps = @app.node.apps.where("id != ?", @app.id).limit(5)
     respond_to do |format|

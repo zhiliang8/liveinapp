@@ -13,15 +13,20 @@ body {
   -webkit-box-shadow: 0 0 0 1px #DDD;
   box-shadow: 0 0 0 1px #DDD;
   padding: 10px;
+  h2 {
+    margin: 0 -10px 10px -10px;
+    color: #999;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    padding-left: 10px;
+    line-height: 30px;
+    strong {
+      color: #A00;
+      margin: 0 4px
+    }
+  }
 }
-.box h2 {
-  margin: 0 -10px 10px -10px;
-  color: #999;
-  font-size: 16px;
-  border-bottom: 1px solid #ddd;
-  padding-left: 10px;
-  line-height: 30px;
-}
+
 .box-break {
   padding: 0;
   h2 {
