@@ -26,7 +26,7 @@
         </div>
       </div>
       <% end %>
-      <%= f.input :desc, :as => :text, :input_html => {:rows=>10, :class => 'span6'}, :placeholder => "支持markdown格式" %>
+      <%= f.input :desc, :as => :text, :input_html => {:rows=>6, :class => 'span6'}, :placeholder => "支持markdown格式" %>
       </fieldset>
     </div>
     <div class="tab-pane" id="pricing">
@@ -35,7 +35,7 @@
       <%= content_tag :span, "天", :class => "add-on" %>
       <% end %>
       <%= f.input :pricing_url, :placeholder => "http://", :input_html => { :class => 'input-xlarge' }%>
-      <%= f.input :pricing, :as => :text, :input_html => {:rows=>10, :class => 'span6'}, :placeholder => "支持markdown格式"  %>
+      <%= f.input :pricing, :as => :text, :input_html => {:rows=>6, :class => 'span6'}, :placeholder => "支持markdown格式"  %>
       </fieldset>
     </div>
   </div>
