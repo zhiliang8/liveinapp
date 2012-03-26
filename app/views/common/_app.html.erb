@@ -14,6 +14,9 @@
           <p>
             <a href="<%= user_path(app.user.name) %>"><i class='icon-user'></i><%= app.user.name %></a>
           </p>
+          <p>
+            <a href="<%= node_apps_path(app.node) %>"><i class='icon-tag'></i><%= app.node_name %></a>
+          </p>
         </div>
         <% if params[:controller] == 'apps' && params[:action] == 'show' %>
         <div class="my-state">
@@ -35,8 +38,6 @@
       <div class="pull-right">
         <a href="<%= app_path(app) %>#app-users"><i class="icon-user"></i>用户(<%= app.using_user_count %>)</a>
         <a href="<%= app_path(app) %>#comments"><i class='icon-comment'></i>评论(<%= app.comments_count%>)</a>
-        <a href="<%= node_apps_path(app.node) %>"><i class='icon-tag'></i><%= app.node_name %></a>
-        <%= timeago(app.created_at)%>
       </div>
     </div>
   </div>

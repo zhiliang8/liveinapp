@@ -20,7 +20,7 @@
     </div>
     <div class="span8">
       <div id="comments" class="box">
-        <h2>评论，共<%= @app.comments_count%>条评论</h2>
+        <h2>评论，共<strong><%= @app.comments_count%></strong>条评论</h2>
         <ul class="unstyled">
           <%= render :partial => "comments/comment", :collection => @comments, :locals => {:app => @app }%>
           <li>
