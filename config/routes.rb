@@ -9,6 +9,7 @@ Liveinapp::Application.routes.draw do
     member do
       post :using
       post :comment
+      post :rate
     end
     resources :comments
   end

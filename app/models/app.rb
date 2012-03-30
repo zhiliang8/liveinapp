@@ -9,6 +9,8 @@ class App < ActiveRecord::Base
   has_many :users, :through => :app_usings
   has_many :comments
   
+  ajaxful_rateable :stars => 10, :dimensions => ['功能性', '交互性', '稳定性', '性价比']
+  
   attr_protected :status, :using_user_count, :comments_count
   validates :name, :presence => true
   validates :url, :presence => true, :format => {:with => /http:\/\/\w+/}, :uniqueness => true

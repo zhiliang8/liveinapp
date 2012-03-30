@@ -53,4 +53,8 @@ module ApplicationHelper
     end
     raw html
   end
+  
+  def app_show?
+     params[:controller] == 'apps' && params[:action] == 'show'
+  end
 end
