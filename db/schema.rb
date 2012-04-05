@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405143327) do
+ActiveRecord::Schema.define(:version => 20120405160129) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -128,10 +128,10 @@ ActiveRecord::Schema.define(:version => 20120405143327) do
     t.integer  "rater_id"
     t.integer  "rateable_id"
     t.string   "rateable_type"
-    t.integer  "stars",         :null => false
-    t.string   "dimension"
+    t.string   "stars",         :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "user_status"
   end
 
   add_index "rates", ["rateable_id", "rateable_type"], :name => "index_rates_on_rateable_id_and_rateable_type"

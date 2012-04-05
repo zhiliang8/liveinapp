@@ -27,11 +27,7 @@
   <div class="row-fluid app-bar">
     <div class="span12">
       <div class="pull-right">
-        <% if current_user.nil? || current_user.using(app).nil? %>
-            <%= link_to raw("<i class='icon-ok-circle'></i>#{app.using_user_count}人使用"), using_app_path(app), :method => :post, :rel=>"tooltip", :title => "我也在使用"%>
-        <% else %>
-          <a href="<%= app_path(app) %>#app-users" rel="tooltip" title="我已使用"><i class="icon-ok-sign"></i><%= app.using_user_count %>人使用</a>
-        <% end %>
+        <a href="<%= app_path(app) %>#app-users"><i class="icon-ok-sign"></i><%= app.using_user_count %>人使用</a>
         <a href="<%= app_path(app) %>#comments"><i class='icon-comment'></i>评论(<%= app.comments_count%>)</a>
         <a href="<%= app_path(app) %>#comments"><i class='icon-heart'></i><%= app.comments_count%>人收藏</a>
       </div>

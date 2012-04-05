@@ -24,18 +24,27 @@
               </div>
              </div>
             <div class="span4">
-              <div id="app-star">
-                <% @app.ratings.each do |k, v|%>
-                <div id="app_<%= k %>"><span class="app-star-title"><%= v %></span>
-                  <input name="star_<%= k %>" type="radio" class="star required" disabled="disabled" value="0" title="很差"/>
-                  <input name="star_<%= k %>" type="radio" class="star" disabled="disabled" value="1" title="差"/>
-                  <input name="star_<%= k %>" type="radio" class="star" disabled="disabled" value="2" title="还行"/>
-                  <input name="star_<%= k %>" type="radio" class="star" disabled="disabled" value="3" title="好"/>
-                  <input name="star_<%= k %>" type="radio" class="star" disabled="disabled" value="4" title="很好"/>
+              <div class="row-fluid">
+                <div id="app-star" class="span7">
+                  <% @app.ratings.each do |k, v|%>
+                  <div id="app_<%= k %>"><span class="app-star-title"><%= v %></span>
+                    <input name="star_<%= k %>" type="radio" class="star required" disabled="disabled" value="0" title="很差"/>
+                    <input name="star_<%= k %>" type="radio" class="star" disabled="disabled" value="1" title="差"/>
+                    <input name="star_<%= k %>" type="radio" class="star" disabled="disabled" value="2" title="还行"/>
+                    <input name="star_<%= k %>" type="radio" class="star" disabled="disabled" value="3" title="好"/>
+                    <input name="star_<%= k %>" type="radio" class="star" disabled="disabled" value="4" title="很好"/>
+                  </div>
+                  <% end %>
+                  <div>
+                    <span class="app-star-title">&nbsp;</span>(<a href="#"><%=@app.rater_count%>人评价</a>)
+                  </div>
                 </div>
-                <% end %>
-                <div>
-                  <span class="app-star-title">&nbsp;</span>(<a href="#"><%=@app.rater_count%>人评价</a>)
+                <div class="span5 my-star">
+                  <% if current_user.nil? || current_user.using(@app).nil? %>
+                      <%= link_to "用过", "#star-modal", :class => "btn btn-inverse", 'data-toggle' => "modal"%>
+                  <% else %>
+                    <span class="label label-info">我用过这个应用</span><br /><a href="#">修改</a><a href="#">删除</a>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -48,11 +57,7 @@
       <div class="row-fluid app-bar">
         <div class="span12">
           <div class="pull-right">
-            <% if current_user.nil? || current_user.using(@app).nil? %>
-                <%= link_to raw("<i class='icon-ok-circle'></i>#{@app.using_user_count}人使用"), using_app_path(@app), :method => :post, :rel=>"tooltip", :title => "我也在使用"%>
-            <% else %>
-              <a href="<%= app_path(@app) %>#app-users" rel="tooltip" title="我已使用"><i class="icon-ok-sign"></i><%= @app.using_user_count %>人使用</a>
-            <% end %>
+            <a href="<%= app_path(@app) %>#app-users"><i class="icon-ok-sign"></i><%= @app.using_user_count %>人使用</a>
             <a href="<%= app_path(@app) %>#comments"><i class='icon-comment'></i>评论(<%= @app.comments_count%>)</a>
             <a href="<%= app_path(@app) %>#comments"><i class='icon-heart'></i><%= @app.comments_count%>人收藏</a>
           </div>
@@ -121,3 +126,29 @@
     </div>
   </div>
 </div>
+<div class="modal hide fade" id="star-modal" style="display: none;">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>评价</h3>
+  </div>
+  <div class="modal-body">
+    <%= simple_form_for Rate.new, :url => "#" do |f|%>
+      <%= f.input :stars %>
+      <%= f.input :user_status%>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">关闭</a>
+    <a href="#" class="btn btn-primary">保存</a>
+  </div>
+</div>
+<%= content_for :scripts do %>
+  <script type="text/javascript">
+    $(function() {
+      $("#star-modal").on('show', function() {
+        
+      })
+    })
+  </script>
+  
+<% end %>
