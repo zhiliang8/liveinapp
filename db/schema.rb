@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330135448) do
+ActiveRecord::Schema.define(:version => 20120405143327) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -73,6 +73,11 @@ ActiveRecord::Schema.define(:version => 20120330135448) do
     t.integer  "comments_count",   :default => 0
     t.text     "desc_html"
     t.text     "pricing_html"
+    t.integer  "overall_star",     :default => 0,   :null => false
+    t.integer  "functional_star",  :default => 0,   :null => false
+    t.integer  "stability_star",   :default => 0,   :null => false
+    t.integer  "price_star",       :default => 0,   :null => false
+    t.integer  "rater_count",      :default => 0,   :null => false
   end
 
   create_table "comments", :force => true do |t|

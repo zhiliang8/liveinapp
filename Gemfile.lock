@@ -14,13 +14,6 @@ GIT
       rails (>= 3.1.0)
 
 GIT
-  remote: git://github.com/edgarjs/ajaxful-rating.git
-  revision: 8a80ae76be2dd304f2e7ec991af7daca205bc501
-  branch: rails3
-  specs:
-    ajaxful_rating (3.0.0.beta8)
-
-GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 51f680a9a2233748669655d81c82f96bef775298
   specs:
@@ -250,7 +243,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
-  ajaxful_rating!
   anjlab-bootstrap-rails (>= 2.0)
   bootstrap_kaminari!
   breadcrumbs_on_rails

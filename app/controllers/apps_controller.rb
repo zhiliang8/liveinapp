@@ -1,7 +1,7 @@
 # encoding: utf-8
 class AppsController < ApplicationController
   layout 'two_column', :only => [:index]
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :used]
 
   def index
     

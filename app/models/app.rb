@@ -8,8 +8,7 @@ class App < ActiveRecord::Base
   has_many :app_usings
   has_many :users, :through => :app_usings
   has_many :comments
-  
-  ajaxful_rateable :stars => 10, :dimensions => ['功能性', '交互性', '稳定性', '性价比']
+  has_many :rates, :as => :rateable
   
   attr_protected :status, :using_user_count, :comments_count
   validates :name, :presence => true
@@ -19,10 +18,18 @@ class App < ActiveRecord::Base
   scope :latest, order("created_at DESC")
   # scope :approved, where(:status => '1')
   
+  # 评价项
+  RATE_DIMENSIONS = {:overall => '总评', :functional => '功能性', :stability => '稳定性', :price => '价格'}
+  
   def created_by(user)
     self.user == user
   end
+
+  def ratings
     
+    RATE_DIMENSIONS
+  end
+
   before_save do |app|
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
     app.desc_html = markdown.render(app.desc) if app.desc.present?

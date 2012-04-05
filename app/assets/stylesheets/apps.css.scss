@@ -1,3 +1,6 @@
+/*
+ *= require jquery.rating 
+ */
 .app-basic {
   position: relative;
   .my-state {
@@ -46,4 +49,14 @@
       margin-bottom: 0;
     }
   }
+}
+#app-star > div {
+  overflow-y: hidden;
+  .app-star-title {
+    text-align: right;
+    width: 50px;
+  }
+}
+.app-star-title, .star-rating-control {
+  float: left;
 }

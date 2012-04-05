@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
   has_many :using_apps, :through => :app_usings, :source => :app
   has_many :feeds
   
-  ajaxful_rater
-  
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :website, :tags
   attr_accessor :password_confirmation, :by, :current_password
