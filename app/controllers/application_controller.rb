@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def owner?(item)
     return false if item.blank?
     return if current_user.blank?
-    item.user_id == current_user.id
+    item.user_id == current_user.id || item.rater_id == current_user.id
   end
   
   def can_change?(item) 

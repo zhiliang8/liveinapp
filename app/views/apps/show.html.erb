@@ -25,7 +25,7 @@
              </div>
             <div class="span4">
               <div class="row-fluid">
-                <div id="app-star" class="span7">
+                <div class="app-star span7">
                   <% @app.ratings.each do |k, v|%>
                   <div id="app_<%= k %>"><span class="app-star-title"><%= v %></span>
                     <input name="star_<%= k %>" type="radio" class="star required" disabled="disabled" value="0" title="很差"/>
@@ -126,20 +126,39 @@
     </div>
   </div>
 </div>
-<div class="modal hide fade" id="star-modal" style="display: none;">
+<div class="modal" id="star-modal" style="display: none;">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
     <h3>评价</h3>
   </div>
   <div class="modal-body">
-    <%= simple_form_for Rate.new, :url => "#" do |f|%>
-      <%= f.input :stars %>
-      <%= f.input :user_status%>
+    <%= simple_form_for Rate.new, :url => app_rates_path(@app) do |f|%>
+      <%= f.input :user_status, :label => false do %>
+        <div class="row-fluid">
+          <div class="span2">
+          <%= f.label :user_status, :class => "radio inline", :style=>"margin-left:0;" do %>
+            <%= f.radio_button :user_status, "0" %>看过
+          <% end %>
+          </div>
+          <div class="app-star span10">
+            <% @app.ratings.each do |k, v|%>
+            <div id="app_<%= k %>"><span class="app-star-title"><%= v %></span>
+              <input name="star_<%= k %>" type="radio" class="star required" value="0" title="很差"/>
+              <input name="star_<%= k %>" type="radio" class="star" value="1" title="差"/>
+              <input name="star_<%= k %>" type="radio" class="star" value="2" title="还行"/>
+              <input name="star_<%= k %>" type="radio" class="star" value="3" title="好"/>
+              <input name="star_<%= k %>" type="radio" class="star" value="4" title="很好"/>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <%= f.input :body, :input_html => {:rows=>3, :class => 'span7'} %>
     <% end %>
   </div>
   <div class="modal-footer">
     <a href="#" class="btn" data-dismiss="modal">关闭</a>
-    <a href="#" class="btn btn-primary">保存</a>
+    <a href="#" class="btn btn-primary" onclick="javascript: forms['new_rate'].submit();">保存</a>
   </div>
 </div>
 <%= content_for :scripts do %>

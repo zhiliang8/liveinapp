@@ -9,9 +9,9 @@ Liveinapp::Application.routes.draw do
     member do
       post :using
       post :comment
-      post :rate
     end
     resources :comments
+    resources :rates, :only => [:create, :update, :destroy]
   end
 
 

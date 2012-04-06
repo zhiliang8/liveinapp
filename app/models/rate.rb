@@ -1,9 +1,17 @@
+# encoding: utf-8
 class Rate < ActiveRecord::Base
   belongs_to :rater, :class_name => "User"
   belongs_to :rateable, :polymorphic => true
-  validates_numericality_of :stars, :minimum => 1
   
-  attr_accessible :rate, :dimension
+  attr_accessible :user_status, :body
   
-  attr_accessor :dimension_name
+  after_create :popluate_stars
+  
+  def popluate_stars
+    if self.stars.present?
+      require 'json'
+      json = JSON.parse(self.stars)
+      
+    end
+  end
 end
