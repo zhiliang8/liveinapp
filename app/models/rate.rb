@@ -12,12 +12,23 @@ class Rate < ActiveRecord::Base
   
   # 计算总平均星数
   def popluate_stars
+    body = []
     if self.stars.present?
       require 'json'
       stars_data = JSON.parse(self.stars)
       data = stars_data.map{|k,v| {"#{k}_star" => v.to_i}}.inject{|m, v| m.merge(v)}
       App.update_counters(self.app.id, data.merge({:rater_count => 1}))
+      stars_data.each do |k, v|
+        body << "#{App::RATE_DIMENSIONS[k.to_sym]}: #{v}星 "
+      end
     end
+    if self.body.present?
+      body << "\r\n---\r\n" << self.body
+    end
+    comment = Comment.new(:body => body.join)
+    comment.user = self.rater
+    comment.app = self.app
+    comment.save
   end
 
 end

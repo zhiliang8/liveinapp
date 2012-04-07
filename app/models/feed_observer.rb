@@ -1,5 +1,5 @@
 class FeedObserver < ActiveRecord::Observer
-  observe :user, :app, :app_using, :comment
+  observe :user, :app, :rate, :comment
   
   def after_create(model)
     values = feed_values(model)
@@ -21,12 +21,12 @@ class FeedObserver < ActiveRecord::Observer
     end
     def raw_data(model)
       data = {}
-      actor = model.respond_to?(:user) ? model.user : model
+      actor = model.respond_to?(:user) ? model.user : (model.respond_to?(:rater) ? model.rater : model)
       data[:user_name] = actor.name
       data[:user_avater] = actor.avatar if actor.respond_to?(:avatar)
       data[:user_email] = actor.email
       case model.class.name
-      when 'Comment', 'AppUsing'
+      when 'Comment', 'Rate'
         target_title = model.app.name
         target_id = model.app.id
       else

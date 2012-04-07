@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   has_many :apps
   has_many :app_usings
-  has_many :using_apps, :through => :app_usings, :source => :app
+  has_many :using_apps, :through => :rates, :source => :app
   has_many :feeds
   has_many :rates, :foreign_key => :rater_id
   
