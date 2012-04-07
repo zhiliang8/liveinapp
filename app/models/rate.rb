@@ -6,6 +6,8 @@ class Rate < ActiveRecord::Base
   attr_accessible :user_status, :body
   
   default_scope where("user_status" => 0)
+  scope :latest, order("created_at desc")
+  
   after_create :popluate_stars
   
   # 计算总平均星数

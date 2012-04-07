@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120407014735) do
+ActiveRecord::Schema.define(:version => 20120407042949) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -137,9 +137,9 @@ ActiveRecord::Schema.define(:version => 20120407014735) do
   add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
 
   create_table "users", :force => true do |t|
-    t.string   "name",                                                :null => false
-    t.string   "email",                                               :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "name",                                                  :null => false
+    t.string   "email",                                                 :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -148,8 +148,9 @@ ActiveRecord::Schema.define(:version => 20120407014735) do
     t.datetime "updated_at"
     t.string   "website"
     t.string   "tags"
-    t.integer  "using_app_count",                     :default => 0
-    t.integer  "apps_count",                          :default => 0
+    t.integer  "using_app_count",                       :default => 0
+    t.integer  "apps_count",                            :default => 0
+    t.datetime "reset_password_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

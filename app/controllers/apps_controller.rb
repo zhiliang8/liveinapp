@@ -8,7 +8,7 @@ class AppsController < ApplicationController
     if params[:node_id].present?
       @node = Node.find(params[:node_id])
       @apps = @node.apps.latest.page params[:page]
-      @appusings = AppUsing.where(:app_id => @node.apps.pluck(:id)).latest.limit(10)
+      @appusings = Rate.where(:app_id => @node.apps.pluck(:id)).latest.limit(10)
     elsif params[:user_id].present?
       
       @user = User.where(:name => params[:user_id]).first

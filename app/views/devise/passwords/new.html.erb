@@ -1,15 +1,13 @@
-<fieldset>
-  <legend>忘记密码？</legend>
-<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }, :wrapper => :inline) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="inputs">
+<div class="box" id="password-form">
+  <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class=>'form-horizontal' }) do |f| %>
+  <fieldset>
+    <legend>
+      忘记密码？
+    </legend>
     <%= f.input :email, :required => true %>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, "找回密码" %>
-  </div>
-<% end %>
-</fieldset>
-<%= render :partial => "devise/shared/links" %>
+    <div class="form-actions">
+      <%= f.button :submit, "找回密码", :class => "btn btn-primary", :disable_with => t("common.saving")  %> 或者 <%= link_to "登录", new_session_path(resource_name) %>
+    </div>
+  </fieldset>
+  <% end %>
+</div>
