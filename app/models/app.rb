@@ -6,7 +6,7 @@ class App < ActiveRecord::Base
   belongs_to :node, :counter_cache => true
   belongs_to :user, :counter_cache => true
   has_many :app_usings
-  has_many :users, :through => :app_usings
+  has_many :users, :through => :rates, :source => :rater
   has_many :comments
   has_many :rates
   

@@ -94,7 +94,7 @@
     </div>
     <div class="span4">
       <div class="box" id="app-users">
-        <h2>有<strong><%= @app.using_user_count%></strong>人使用该应用</h2>
+        <h2>有<strong><%= @app.rater_count%></strong>人使用该应用</h2>
         <ul class="thumbnails">
         	<% @users.each do |user|%>
         		<li>
@@ -133,15 +133,7 @@
           <% end %>
           </div>
           <div class="app-star span10">
-            <% @app.ratings.each do |k, v|%>
-            <div id="app_<%= k %>"><span class="app-star-title"><%= v %></span>
-              <input name="star_<%= k %>" type="radio" class="star required" value="0" title="很差"/>
-              <input name="star_<%= k %>" type="radio" class="star" value="1" title="差"/>
-              <input name="star_<%= k %>" type="radio" class="star" value="2" title="还行"/>
-              <input name="star_<%= k %>" type="radio" class="star" value="3" title="好"/>
-              <input name="star_<%= k %>" type="radio" class="star" value="4" title="很好"/>
-            </div>
-            <% end %>
+            <%= raw render_stars(@app, true)%>
           </div>
         </div>
       <% end %>
