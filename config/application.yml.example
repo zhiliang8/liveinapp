@@ -1,7 +1,8 @@
 defaults: &defaults
-  app_name: "Live In APP"
-  foot_html: "&copy; liveinapp.com."
-  domain: "127.0.0.1:3000"    
+  app_name: "obeycloud.com"
+  app_summary: "发现云，推荐云"
+  foot_html: "&copy; obeycloud.com."
+  domain: "www.obeycloud.com"    
   admin_emails: 
     - "jordzhang@gmail.com"
   google_analytics_key: ""
