@@ -11,7 +11,7 @@ Liveinapp::Application.routes.draw do
       post :comment
     end
     resources :comments
-    resources :rates, :only => [:create, :update, :destroy]
+    resources :rates, :only => [:create]
   end
 
 

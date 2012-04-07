@@ -8,7 +8,7 @@ class App < ActiveRecord::Base
   has_many :app_usings
   has_many :users, :through => :app_usings
   has_many :comments
-  has_many :rates, :as => :rateable
+  has_many :rates
   
   attr_protected :status, :using_user_count, :comments_count
   validates :name, :presence => true

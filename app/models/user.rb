@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :app_usings
   has_many :using_apps, :through => :app_usings, :source => :app
   has_many :feeds
+  has_many :rates, :foreign_key => :rater_id
   
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :website, :tags
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
   end
   
   def using(app)
-    self.using_apps.where('app_id=? ', app.id).first
+    self.rates.where('app_id=? ', app.id).first
   end
   
   def use(app)

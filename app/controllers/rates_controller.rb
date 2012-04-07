@@ -34,19 +34,11 @@ class RatesController < ApplicationController
     end
   end
   
-  def update
-    
-  end
-  
-  def destroy
-    
-  end
-  
   private
   def to_stars(params)
     stars = {}
     App::RATE_DIMENSIONS.keys.each do |k|
-      stars["#{k}"] = params["star_#{k}"]
+      stars["#{k}"] = params["star_#{k}"] || "0"
     end
     stars.to_json
   end
