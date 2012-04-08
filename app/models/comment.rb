@@ -6,4 +6,12 @@ class Comment < ActiveRecord::Base
   validates :body, :presence => true
   
   default_scope order("created_at desc")
+  
+  def bodys
+    if self.votable
+      self.body.scan(/(.+)\s*---\s*(.+)/).flatten
+    else
+      [self.body]
+    end
+  end
 end

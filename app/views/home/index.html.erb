@@ -19,8 +19,10 @@
       <li>
         <span><%= link_to comment.user.name, user_path(comment.user.name)%>评论<%= link_to comment.app.name, app_path(comment.app)%></span>
         <div class="content">
-          <%= comment.body %>
           <%= user_avatar_tag(comment.user, :normal)%>
+          <div class="main-content">
+            <%= comment.bodys.first %><%if comment.bodys.size==2 %><br /><%= comment.bodys.last %> <% end %>
+          </div>
         </div>
       </li>
     <% end %>

@@ -24,7 +24,7 @@ class Rate < ActiveRecord::Base
       end
     end
     if self.body.present?
-      body << "\r\n---\r\n" << self.body
+      body << "---" << self.body
     end
     comment = Comment.new(:body => body.join)
     #评价评论 区别与普通的评论

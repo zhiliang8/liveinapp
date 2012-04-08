@@ -8,7 +8,9 @@
       <span class="pull-right"><%= timeago comment.created_at %></span>
     </div>
     <div class="body">
-      <p><%= comment.body %></p>
+      <div>
+        <%= comment.bodys.first %><%if comment.bodys.size==2 %><br /><%= comment.bodys.last %> <% end %>
+      </div>
     </div>
   </div>
 </li>
