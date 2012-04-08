@@ -1,8 +1,9 @@
 # encoding: utf-8
 class RatesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :can_vote?
+  
   def create
-    @app = App.find(params[:app_id])
+    
     rate_id = params[:rate][:id]
     
     if rate_id.present?
@@ -41,5 +42,9 @@ class RatesController < ApplicationController
       stars["#{k}"] = params["star_#{k}"] || "0"
     end
     stars.to_json
+  end
+  def can_vote?
+    @app = App.find(params[:app_id])
+    !current_user.voted?(@app)
   end
 end

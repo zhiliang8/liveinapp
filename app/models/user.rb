@@ -23,6 +23,12 @@ class User < ActiveRecord::Base
     self.rates.where('app_id=? ', app.id).first
   end
   
+  def using?(app)
+    using(app).present?
+  end
+  def voted?(app)
+    using?(app)
+  end
   def use(app)
     @appUsing = AppUsing.new
     @appUsing.user_id = self.id

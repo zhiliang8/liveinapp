@@ -2,15 +2,19 @@ class FeedObserver < ActiveRecord::Observer
   observe :user, :app, :rate, :comment
   
   def after_create(model)
-    values = feed_values(model)
-    values[:action] = "ADD"
-    Feed.create(values)
+    if can_feed?(model)
+      values = feed_values(model)
+      values[:action] = "ADD"
+      Feed.create(values)
+    end
   end
     
   def after_update(model)
-    values = feed_values(model)
-    values[:action] = "EDIT"
-    Feed.create(values)
+    if can_feed?(model)
+      values = feed_values(model)
+      values[:action] = "EDIT"
+      Feed.create(values)
+    end
   end
   
   private
@@ -21,7 +25,7 @@ class FeedObserver < ActiveRecord::Observer
     end
     def raw_data(model)
       data = {}
-      actor = model.respond_to?(:user) ? model.user : (model.respond_to?(:rater) ? model.rater : model)
+      actor = model.respond_to?(:user) ? model.user : model
       data[:user_name] = actor.name
       data[:user_avater] = actor.avatar if actor.respond_to?(:avatar)
       data[:user_email] = actor.email
@@ -39,5 +43,13 @@ class FeedObserver < ActiveRecord::Observer
         
       data[:body] = model.body if model.respond_to?(:body)
       data.to_json
+    end
+    
+    def can_feed?(model)
+      if model.class.name == 'Comment' && model.votable
+        false
+      else
+        true
+      end
     end
 end

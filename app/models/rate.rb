@@ -1,6 +1,7 @@
 # encoding: utf-8
 class Rate < ActiveRecord::Base
-  belongs_to :rater, :class_name => "User"
+  belongs_to :rater, :class_name => "User", :counter_cache => :using_app_count
+  belongs_to :user, :class_name => "User", :foreign_key => :rater_id
   belongs_to :app
   
   attr_accessible :user_status, :body
@@ -26,6 +27,8 @@ class Rate < ActiveRecord::Base
       body << "\r\n---\r\n" << self.body
     end
     comment = Comment.new(:body => body.join)
+    #评价评论 区别与普通的评论
+    comment.votable = true
     comment.user = self.rater
     comment.app = self.app
     comment.save
