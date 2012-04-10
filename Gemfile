@@ -24,7 +24,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'settingslogic'
 
-gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+gem 'simple_form'
 gem 'kaminari'
 gem 'jquery-rails'
 gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
@@ -32,7 +32,7 @@ gem 'bootstrap_kaminari', :git => 'git://github.com/dleavitt/bootstrap_kaminari.
 gem 'chosen_rails'
 gem 'breadcrumbs_on_rails'
 gem 'tabs_on_rails', :git => 'git@github.com:jordzhang/tabs_on_rails.git'
-# gem 'ajaxful_rating', :git => 'git://github.com/edgarjs/ajaxful-rating.git', :branch => 'rails3'
+gem 'cells'
 
 # markdown
 gem 'redcarpet'

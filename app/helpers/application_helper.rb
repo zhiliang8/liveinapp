@@ -57,4 +57,12 @@ module ApplicationHelper
   def app_show?
      params[:controller] == 'apps' && params[:action] == 'show'
   end
+  
+  def link_to_or_login(title, href, options={})
+    if current_user.present?
+      link_to title, href, options
+    else
+      link_to title, new_user_session_path, options.merge({:rel => "tooltip", :title => "请先登录"})
+    end
+  end
 end

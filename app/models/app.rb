@@ -9,6 +9,7 @@ class App < ActiveRecord::Base
   has_many :users, :through => :rates, :source => :rater
   has_many :comments
   has_many :rates
+  has_many :news
   
   attr_protected :status, :using_user_count, :comments_count
   validates :name, :presence => true

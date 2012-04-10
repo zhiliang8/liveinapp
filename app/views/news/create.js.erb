@@ -1,0 +1,7 @@
+<% if @news.errors.blank? %>
+$("#latest-news ul").prepend('<%= escape_javascript(render(:partial => "news", :locals => {:news => @news} ))%>')
+<% else %>
+  $("#latest-news #news-form input[type=text]").val()
+  $("#latest-news #news-form").hide();
+<% end %>
+$("#latest-news form").prepend('<%= escape_javascript(notice_message)%>')

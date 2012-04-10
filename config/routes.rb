@@ -1,20 +1,22 @@
 Liveinapp::Application.routes.draw do
-  get "feeds/index"
 
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :apps do 
+    resources :comments
+    resources :rates
+    resources :news
     member do
       post :using
       post :comment
     end
-    resources :comments
-    resources :rates, :only => [:create]
+    
   end
-
-
+  
+  resources :news
+  
   resources :nodes do
     resources :apps
   end

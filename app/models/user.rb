@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :using_apps, :through => :rates, :source => :app
   has_many :feeds
   has_many :rates, :foreign_key => :rater_id
+  has_many :news
   
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :website, :tags

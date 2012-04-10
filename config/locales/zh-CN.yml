@@ -245,6 +245,9 @@
         pricing: 套餐价格
       rate:
         body: 评论
+      news:
+        title: 标题
+        link: 链接
     errors:
       <<: *errors
       models:
