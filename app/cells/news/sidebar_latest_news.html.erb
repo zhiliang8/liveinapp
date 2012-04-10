@@ -10,8 +10,6 @@
     <% end %>
   </div>
   <ul>
-    <% @latest_news.each do |news| %>
-      <li><%= link_to news.title, news.link, :target => "_blank" %></li>
-    <% end %>
+    <%= render :partial => "../views/news/news", :collection => @latest_news%>
   </ul>
 </div>
