@@ -1,5 +1,5 @@
 <div class="box">
-  <h2><%= @node.name %></h2>
+  <h2>最新云应用</h2>
   <div id="apps">
     <%= render :partial => "common/app", :collection => @apps %>
     <%= paginate @apps, :theme => 'bootstrap' %>

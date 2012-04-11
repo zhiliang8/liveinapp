@@ -15,7 +15,8 @@ class AppsController < ApplicationController
       @apps = @user.apps.latest.page params[:page]
       render 'user_index', :layout => 'user'
     else
-      
+      @apps = App.latest.page params[:page]
+      @appusings = Rate.latest.limit(10)
     end
   end
 
