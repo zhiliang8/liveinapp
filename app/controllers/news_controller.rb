@@ -1,7 +1,9 @@
 # coding: utf-8
 class NewsController < ApplicationController
+  # layout 'two_column', :only => [:index]
   before_filter :authenticate_user!, :only => [:create, :destroy]
   def index
+    @news = News.page params[:page]
   end
 
   def create

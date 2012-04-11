@@ -1,1 +1,9 @@
-TODO 
+<div class="box" id="news">
+  <h2>最新新闻</h2>
+  <ul>
+  <% @news.each do |news|%>
+    <li><%= link_to news.title, news.link, :target => "_blank" %><%= link_to news.app.name, app_path(news.app), :class => "label app"%></li>
+  <% end %>
+  </ul>
+  <%= paginate @news, :theme => 'bootstrap' %>
+</div>
