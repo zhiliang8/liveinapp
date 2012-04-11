@@ -1,15 +1,9 @@
 <% content_for :content do %>
   <div class="span2">
     <div class="box">
-    <%= render "common/nodes"%>
+    <%= render_cell :app, :sidebar_app_nodes %>
     </div>
-    <div class="box">
-      <h2>统计</h2>
-      <ul>
-        <li>用户数： <%= @user_count%> 个</li>
-        <li>应用数： <%= @app_count%> 个</li>
-      </ul>
-    </div>
+    <%= render_cell :global, :stats %>
   </div>
   <div class="span7">
     <%= yield %>

@@ -1,14 +1,6 @@
 <div class="box news" id="latest-news">
-  <h2>新闻资讯<div class="pull-right"><%= link_to_or_login "添加", new_app_news_path(@app)%></div></h2>
-  <div id="news-form" style="display: none;">
-    
-    <%= simple_form_for News.new, :url => app_news_index_path(@app), :remote => true do |f|%>
-      <%= f.input :title %>
-      <%= f.input :link %>
-      <%= f.button :submit, t("common.save"), :class => "btn-primary", :disable_with => t("common.saving") %>
-      <%= link_to t("common.cancel"), "#", :class => "btn cancel"%>
-    <% end %>
-  </div>
+  <h2>新闻资讯<div class="pull-right"><%= link_to "更多", news_index_path %></div>
+  </h2>
   <ul>
     <%= render :partial => "../views/news/news", :collection => @latest_news%>
   </ul>

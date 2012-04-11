@@ -1,5 +1,5 @@
 <ul class="unstyled">
-  <% Node.all.each do |node|%>
+  <% @nodes.each do |node|%>
     <li><%= link_to "#{node.name}(#{node.apps_count.present? ? node.apps_count : 0})", node_apps_path(node) %></li>
   <% end %>
 </ul>
