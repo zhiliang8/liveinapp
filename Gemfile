@@ -45,7 +45,9 @@ gem 'redcarpet'
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'activeadmin'
+gem "formtastic", "~> 2.1.1"
+gem "activeadmin", "~> 0.4.3"
+# gem 'activeadmin'
 # gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 gem 'mini_magick'

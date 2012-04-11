@@ -13,7 +13,6 @@ class NewsController < ApplicationController
     else
       flash.now[:notice] = "新闻添加失败"
     end
-      
   end
 
   def destroy
