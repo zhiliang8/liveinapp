@@ -13,17 +13,11 @@
 			<div class="navbar-inner">
 				<div class="container">
 					<a class="brand" href="/"><%= Settings.app_name %></a>
-					<ul class="nav">
-						<li class="active">
-							<a href="/">首页</a>
-						</li>
-						<li>
-							<%= link_to "云应用", apps_path %>
-						</li>
-						<li>
-							<%= link_to "新闻", news_index_path %>
-						</li>
-					</ul>
+					<%= tabs_tag :open_tabs => {:class => "nav"} do |tab| %>
+            <%= tab.home '首页', root_path %>
+            <%= tab.apps  '云应用', apps_path %>
+            <%= tab.news '新闻', news_index_path %>
+          <% end %>
 					<form class="navbar-search pull-left" action="">
 						<input type="text" class="search-query span3" placeholder="搜索云应用">
 					</form>

@@ -1,5 +1,7 @@
 # encoding: utf-8
 class AppsController < ApplicationController
+  set_tab :apps
+  
   layout 'two_column', :only => [:index]
   before_filter :authenticate_user!, :except => [:index, :show, :used]
 
