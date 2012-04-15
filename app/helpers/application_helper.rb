@@ -67,7 +67,7 @@ module ApplicationHelper
   end
   
   def apps_menu(params)
-    apps_menus = {:recent => "最新添加", :recent_update => "最新更新", :hot_use => "最多用户", :hot_rate => "最高评价"}
+    apps_menus = {:recent => "最新添加", :recent_update => "最新更新", :hot_use => "最多用户", :hot_rate => "评价最高"}
     url = params['controller'] == "home" ? apps_path : url_for(:only_path => false)
     order = params[:order].present? ? params[:order].to_sym : :recent
     len = apps_menus.length

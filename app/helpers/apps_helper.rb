@@ -7,7 +7,7 @@ module AppsHelper
     
     App::RATE_DIMENSIONS.each do|k, v|
       input_html = []
-      app_star = if new || app.rater_count == 0
+      app_star = if new || app.rater_count.zero?
         0
       else
         attr = "#{k}_star".to_sym

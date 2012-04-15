@@ -23,7 +23,7 @@ class App < ActiveRecord::Base
   #最多用户使用
   scope :hot_use, order("rater_count DESC")
   # 评价最高
-  scope :hot_rate, order("overall_star DESC")
+  scope :hot_rate, order("score DESC")
   
   # scope :approved, where(:status => '1')
   

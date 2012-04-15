@@ -18,7 +18,9 @@ class Rate < ActiveRecord::Base
       require 'json'
       stars_data = JSON.parse(self.stars)
       data = stars_data.map{|k,v| {"#{k}_star" => v.to_i}}.inject{|m, v| m.merge(v)}
-      App.update_counters(self.app.id, data.merge({:rater_count => 1}))
+      app = self.app
+      score = app.rater_count.zero? ? 0 : app.overall_star/app.rater_count
+      App.update_counters(app.id, data.merge({:rater_count => 1, :score => score}))
       stars_data.each do |k, v|
         body << "#{App::RATE_DIMENSIONS[k.to_sym]}: #{v}星 "
       end
