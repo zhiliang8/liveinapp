@@ -65,4 +65,20 @@ module ApplicationHelper
       link_to title, new_user_session_path, options.merge({:rel => "tooltip", :title => "请先登录"})
     end
   end
+  
+  def apps_menu(params)
+    apps_menus = {:recent => "最新添加", :recent_update => "最新更新", :hot_use => "最多用户", :hot_rate => "最高评价"}
+    url = params['controller'] == "home" ? apps_path : url_for(:only_path => false)
+    order = params[:order].present? ? params[:order].to_sym : :recent
+    len = apps_menus.length
+    
+    "所有云应用".tap do |html|
+      html << "<div class=\"pull-right\" id=\"apps_menu\">排序："
+      apps_menus.each_with_index do |elem, index|
+        html << link_to_unless(elem[0]==order, elem[1], url + "?" +params.reject{|k,v|['controller', 'action','node_id'].include?(k)}.merge({:order=>elem[0]}).to_query)
+        html << " / " if index != len-1
+      end
+      html << "</div>"
+    end.html_safe
+  end
 end

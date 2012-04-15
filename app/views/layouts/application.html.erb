@@ -60,8 +60,9 @@
 			<footer>
 			  <p>
 			    <% cache("page_links") do %>
-  			    <% Page.all.each do |page| %>
-  			    <%= link_to page.title, page_path(page.slug) %> |
+			      <% @pages = Page.all; pages_len = @pages.size%>
+  			    <% @pages.each_with_index do |page, index| %>
+  			    <%= link_to page.title, page_path(page.slug) %><%= "|" if index != pages_len-1%>
   			    <% end %>
 			    <% end %>
 			  </p>

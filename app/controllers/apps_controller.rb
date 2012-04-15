@@ -6,25 +6,26 @@ class AppsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show, :used]
 
   def index
-    
+    orders = ["recent", "recent_update", "hot_use", "hot_rate"]
+    order_by = orders.include?(params[:order]) ? params[:order] : "recent" 
     if params[:node_id].present?
       @node = Node.find(params[:node_id])
-      @apps = @node.apps.latest.page params[:page]
+      @apps = @node.apps.send(order_by).page params[:page]
       @appusings = Rate.where(:app_id => @node.apps.pluck(:id)).latest.limit(10)
     elsif params[:user_id].present?
       
       @user = User.where(:name => params[:user_id]).first
-      @apps = @user.apps.latest.page params[:page]
+      @apps = @user.apps.recent.page params[:page]
       render 'user_index', :layout => 'user'
     else
-      @apps = App.latest.page params[:page]
+      @apps = App.send(order_by).page params[:page]
       @appusings = Rate.latest.limit(10)
     end
   end
 
   def used
     @user = User.where(:name => params[:user_id]).first
-    @apps = @user.using_apps.latest.page params[:page]
+    @apps = @user.using_apps.recent.page params[:page]
     render 'user_index', :layout => 'user'
   end
   

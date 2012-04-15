@@ -16,7 +16,15 @@ class App < ActiveRecord::Base
   validates :url, :presence => true, :format => {:with => /http:\/\/\w+/}, :uniqueness => true
   mount_uploader :logo, LogoUploader
   
-  scope :latest, order("created_at DESC")
+  #最新添加
+  scope :recent, order("created_at DESC")
+  #最新更新
+  scope :recent_update, order("updated_at DESC")
+  #最多用户使用
+  scope :hot_use, order("rater_count DESC")
+  # 评价最高
+  scope :hot_rate, order("overall_star DESC")
+  
   # scope :approved, where(:status => '1')
   
   # 评价项
