@@ -84,6 +84,13 @@ GEM
       actionpack (~> 3.0)
       railties (~> 3.0)
     chosen_rails (0.1.0)
+    coffee-rails (3.2.2)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.2.0)
     devise (2.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -245,6 +252,7 @@ DEPENDENCIES
   carrierwave
   cells
   chosen_rails
+  coffee-rails (~> 3.2.1)
   devise (~> 2.0)
   execjs
   factory_girl_rails
