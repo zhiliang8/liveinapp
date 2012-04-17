@@ -9,13 +9,13 @@ Liveinapp::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -43,7 +43,9 @@ Liveinapp::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w(active_admin.js apps.js comments.js feeds.js home.js jquery.autogrow.js jquery.rating.js
+  news.js nodes.js pages.js rates.js users.js active_admin.css apps.css comments.css feeds.css home.css
+  jquery.rating.css news.css nodes.css pages.css rates.css scaffolds.css users.css)
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
