@@ -22,7 +22,7 @@ production:
   adapter: mysql2
   database: liveinapp
   username: root
-  password: 1234
-  encoding: utf-8
+  password: '1234'
+  encoding: utf8
   pool: 5
   timeout: 5000

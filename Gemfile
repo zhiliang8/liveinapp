@@ -65,7 +65,7 @@ group :development, :test do
 end
 
 group :production do
-  # gem 'mysql2'
+  gem 'mysql2'
   # Use unicorn as the web server
-  gem 'unicorn'
+  # gem 'unicorn'
 end
