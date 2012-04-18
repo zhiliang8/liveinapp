@@ -1,5 +1,5 @@
 class FeedObserver < ActiveRecord::Observer
-  observe :user, :app, :rate, :comment
+  observe :user, :rate, :comment
   
   def after_create(model)
     if can_feed?(model)
