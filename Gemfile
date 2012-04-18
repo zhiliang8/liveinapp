@@ -66,6 +66,7 @@ end
 
 group :production do
   gem 'mysql2'
+  gem 'dalli', '1.1.1'
   # Use unicorn as the web server
   # gem 'unicorn'
 end

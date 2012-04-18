@@ -91,6 +91,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    dalli (1.1.1)
     devise (2.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -253,6 +254,7 @@ DEPENDENCIES
   cells
   chosen_rails
   coffee-rails (~> 3.2.1)
+  dalli (= 1.1.1)
   devise (~> 2.0)
   execjs
   factory_girl_rails
