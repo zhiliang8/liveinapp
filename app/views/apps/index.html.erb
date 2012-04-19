@@ -1,4 +1,4 @@
-<% content_for :title do %><%=@node.present? ? @node.title : "所有云服务"%> - <%= Settings.app_name%><% end %>
+<% content_for :title do %><%=@node.present? ? @node.name : "所有云服务"%> - <%= Settings.app_name%><% end %>
 <div class="box">
   <h2><%= apps_menu(params) %></h2>
   <div id="apps">
