@@ -239,7 +239,6 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.1.1)
       rack (>= 1.0)
-    yaml_db (0.2.2)
 
 PLATFORMS
   ruby
@@ -277,4 +276,3 @@ DEPENDENCIES
   tabs_on_rails!
   therubyracer
   uglifier (>= 1.0.3)
-  yaml_db

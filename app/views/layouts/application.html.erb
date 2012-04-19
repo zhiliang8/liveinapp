@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><%= Settings.app_name %></title>
+		<title><%= content_for?(:title) ? yield(:title) : "Obeycloud.com - 发现云服务，推荐云服务，分享与交流云使用心得" %></title>
+		<meta name="keywords" content="云主机 云笔记 云存储 数据云 云监控 云笔记 分享 交流" />
+    <meta name="description" content="obeycloud.com提供了发现、分享、推荐云服务的一个平台" />
 		<%= stylesheet_link_tag "application", params[:controller]%>
 		<%= yield :styles %>
 		<%= javascript_include_tag "application", params[:controller] %>
