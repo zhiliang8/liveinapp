@@ -6,7 +6,6 @@
         <div>
           <p class="app-title">
             <%= link_to content_tag(:strong, app.name), app_path(app)%>
-            <%= link_to("编辑", edit_app_path(app)) if app.created_by(current_user)%>
           </p>
           <p>
             <a href="<%= app.url %>" target="_blank"><i class='icon-home'></i><%= app.url %></a>
