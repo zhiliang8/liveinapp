@@ -4,9 +4,9 @@ defaults: &defaults
   foot_html: "&copy; obeycloud.com."
   domain: "www.obeycloud.com"    
   admin_emails: 
-    - "jordzhang@gmail.com"
+    - "admin@example.com"
   google_analytics_key: ""
-  email_sender: 'jordzhang@gmail.com'
+  email_sender: 'admin@example.com'
   aws_access_key_id: ''
   aws_secret_access_key: ''
   github_token: ""
